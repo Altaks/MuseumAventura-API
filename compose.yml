@@ -1,0 +1,71 @@
+name: 'sae5.01-caramadridriz'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./build/nginx/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-nginx
+    container_name: ${COMPOSE_PROJECT_NAME}-nginx
+    volumes:
+      - type: bind
+        source: ./sfapi
+        target: /app/sfapi
+    depends_on:
+      - sfapi
+    ports:
+      - 8000:80
+    networks:
+      - network
+  sfapi:
+    build:
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+        USER_NAME: ${USER_NAME:-0}
+        GROUP_NAME: ${GROUP_NAME:-0}
+      context: .
+      dockerfile: ./build/sfapi/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-sfapi
+    container_name: ${COMPOSE_PROJECT_NAME}-sfapi
+    volumes:
+      - type: bind
+        source: ./sfapi
+        target: /app/sfapi
+    depends_on:
+      - database
+    networks:
+      - network
+  database:
+    build:
+      context: .
+      dockerfile: ./build/database/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-database
+    container_name: ${COMPOSE_PROJECT_NAME}-database
+    ports:
+      - 3306:3306
+    volumes:
+      - type: volume
+        source: database-volume
+        target: /var/lib/mysql
+    environment:
+      MYSQL_DATABASE: dbsfapi
+      MYSQL_ROOT_PASSWORD: rdbsfapi
+      MYSQL_USER: udbsfapi
+      MYSQL_PASSWORD: pdbsfapi
+    networks:
+      - network
+
+networks:
+  network:
+    name : ${COMPOSE_PROJECT_NAME}-network
+    driver: bridge
+
+volumes:
+  database-volume:
+    driver: local
+
+
+
+
+
