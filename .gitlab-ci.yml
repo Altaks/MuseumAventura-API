@@ -18,7 +18,7 @@ build:
   tags:
     - docker
   script:
-    - docker build . -t but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA}
+    - docker build . -t but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} -f build/sfapi/Dockerfile
     - docker tag but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
     - docker push $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
 
