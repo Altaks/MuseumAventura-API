@@ -28,6 +28,7 @@ testing:
     - docker # il existe d'autres tags (shell en particulier), pourquoi et comment choisir ?
   image: $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
   script:
+    - composer install
     - cd sfapi && php bin/phpunit
 
 sonarqube-check:
