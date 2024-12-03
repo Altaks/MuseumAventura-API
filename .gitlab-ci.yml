@@ -7,6 +7,7 @@ variables:
 .symfony:
   before_script:
     - cd sfapi
+    - touch .env
 
 stages:
   - build
