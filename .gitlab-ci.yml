@@ -35,7 +35,7 @@ testing:
   image: $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
   script:
     - composer install
-    - cd sfapi && php bin/phpunit
+    - php bin/phpunit
 
 sonarqube-check:
   tags :
