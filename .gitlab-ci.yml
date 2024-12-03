@@ -4,6 +4,10 @@ variables:
   KUBECTL: "kubectl --insecure-skip-tls-verify"
   K8S_NAMESPACE: ns-sae5-X21
 
+.symfony:
+  before_script:
+    - cd sfapi
+
 stages:
   - build
   - code-quality
@@ -24,6 +28,7 @@ build:
 
 testing:
   stage: code-quality
+  extends: [.symfony]
   tags :
     - docker # il existe d'autres tags (shell en particulier), pourquoi et comment choisir ?
   image: $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
