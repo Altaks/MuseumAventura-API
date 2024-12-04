@@ -1,0 +1,94 @@
+workflow:
+  rules:
+    - changes:
+        - .gitlab/**/**.md
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: '$CI_COMMIT_REF_NAME == "dev"'
+      when: always
+
+variables:
+  # Cela permet de déterminer en tant que qui/quoi on se connecte à k8s.
+  KUBE_CONTEXT: labs-iut-info/labsagent:labsagentiut # A quoi sert cette ligne ?
+  KUBECTL: "kubectl --insecure-skip-tls-verify"
+  K8S_NAMESPACE: ns-sae5-X21
+
+.symfony:
+  before_script:
+    - cd sfapi
+    - touch .env
+
+stages:
+  - build
+  - code-quality
+  - sonarqube
+  # - deploy
+
+build:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker info
+  tags:
+    - docker
+  script:
+    - docker build . -t but3/x21/sae5-api-dev-${CI_COMMIT_SHORT_SHA} -f build/sfapi/Dockerfile
+    - docker tag but3/x21/sae5-api-dev-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/${DOCKER_IMAGE_TAG}-dev
+    - docker push $CI_REGISTRY/$CI_PROJET/${DOCKER_IMAGE_TAG}-dev
+
+testing:
+  stage: code-quality
+  extends: [.symfony]
+  tags :
+    - docker # il existe d'autres tags (shell en particulier), pourquoi et comment choisir ?
+  image: $CI_REGISTRY/$CI_PROJET/${DOCKER_IMAGE_TAG}-dev
+  script:
+    - composer install
+    - php bin/phpunit
+
+sonarqube-check:
+  tags :
+    - docker # il existe d'autres tags (shell en particulier), pourquoi et comment choisir ?
+  stage: sonarqube
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner
+  allow_failure: true
+  only:
+    - main
+    - dev
+
+.kube-context:
+  before_script:
+    # Si la variable d'environnement KUBE_CONTEXT est définie, on l'utilise avec kubectl pour le configurer
+    - if [ -n "$KUBE_CONTEXT" ]; then kubectl config use-context "$KUBE_CONTEXT"; fi # Quel est le rôle de ce script ?
+
+
+#deploy:
+#  stage: deploy
+#  extends: [.kube-context]
+#  tags :
+#    - docker
+#  environment:
+#    name: production
+#    url: https://app-ci5-amazur01.labs.iut-larochelle.fr
+#  image: roffe/kubectl:v1.13.0 # Pourquoi utilisons-nous cette image ?
+#  script:
+#    - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
+#    - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
+#    - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
+#    - $KUBECTL delete --ignore-not-found=true -f k8s/
+#    - cat k8s/deployment.yml | envsubst | $KUBECTL apply -f -
+#    - cat k8s/cluster.yml | $KUBECTL apply -f -
+#    - cat k8s/ingress.yml | $KUBECTL apply -f -
+#  only:
+#    - main
