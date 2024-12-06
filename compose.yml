@@ -1,4 +1,4 @@
-name: 'sae5.01-caramadridriz'
+name: 'sae5-01-caramadridriz'
 
 services:
   nginx:
