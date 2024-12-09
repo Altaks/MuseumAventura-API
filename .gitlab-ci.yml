@@ -1,8 +1,17 @@
+stages:
+  - basic
+
+basic:
+  stage: basic
+  script:
+    - echo "Hello GitLab"
+
 include:
   - local: gitlab/ci.prod.yml
     rules:
       - changes:
           - .gitlab/**/**.md
+        when: never
       - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
         when: never
       - if: '$CI_PIPELINE_SOURCE == "web" || $CI_JOB_MANUAL == "true"'
@@ -10,5 +19,7 @@ include:
         when: always
   - local: gitlab/ci.dev.yml
     rules:
+      - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+        when: never
       - if: '$CI_COMMIT_REF_NAME == "dev"'
         when: always
