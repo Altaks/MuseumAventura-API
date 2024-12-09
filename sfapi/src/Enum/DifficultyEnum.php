@@ -8,5 +8,3 @@ enum DifficultyEnum: string
     case MEDIUM = 'medium';
     case HARD = 'hard';
 }
-
-
