@@ -1,10 +1,15 @@
-stages:
-  - basic
+workflow:
+  rules:
+    - if: '$CI_COMMIT_REF_NAME != "dev" && $CI_COMMIT_REF_NAME != "main"'
+      when: never
 
-basic:
-  stage: basic
+stages:
+  - hello
+
+hello:
+  stage: hello
   script:
-    - echo "Hello GitLab"
+    - echo "Hello World"
 
 include:
   - local: gitlab/ci.prod.yml
