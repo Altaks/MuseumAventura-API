@@ -10,9 +10,5 @@ include:
         when: always
   - local: gitlab/ci.dev.yml
     rules:
-      - changes:
-          - .gitlab/**/**.md
-      - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
-        when: never
       - if: '$CI_COMMIT_REF_NAME == "dev"'
         when: always
