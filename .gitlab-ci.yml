@@ -2,7 +2,7 @@ variables:
   # Cela permet de déterminer en tant que qui/quoi on se connecte à k8s.
   KUBE_CONTEXT: labs-iut-info/labsagent:labsagentiut # A quoi sert cette ligne ?
   KUBECTL: "kubectl --insecure-skip-tls-verify"
-  K8S_NAMESPACE: ns-sae5-X21
+  K8S_NAMESPACE: ns-sae5-x21
 
 .symfony:
   before_script:
