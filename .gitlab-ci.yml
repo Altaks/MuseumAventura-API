@@ -27,6 +27,10 @@ build:
     - docker tag but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
     - docker push $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
 
+    - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} -f ./build/nginx/conf/Dockerfile
+    - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/nginx
+    - docker push $CI_REGISTRY/$CI_PROJET/nginx
+
 # Étape de lint pour PHP
 lint:
   stage: code-quality  # Assignation de l'étape combinée `lint-test`.
