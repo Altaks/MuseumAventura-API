@@ -13,6 +13,7 @@ stages:
   - build
   - code-quality
   - sonarqube
+  - deploy
 
 build:
   stage: build
