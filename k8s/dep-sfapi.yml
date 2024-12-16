@@ -24,12 +24,13 @@ spec:
           lifecycle:
             postStart:
               exec:
-                - "/bin/sh"
-                - "-c"
-                - >
-                  cd /app/sfapi
-                  composer install -n
-                  chmod 744 ./ -R
+                command:
+                  - "/bin/sh"
+                  - "-c"
+                  - >
+                    cd /app/sfapi
+                    composer install -n
+                    chmod 744 ./ -R
       imagePullSecrets:
         - name: gitlab-auth
 
