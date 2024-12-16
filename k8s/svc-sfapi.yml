@@ -11,4 +11,4 @@ spec:
     component: sfapi
   ports:
     - port: 80
-      targetPort: 8000
+      targetPort: 9000
