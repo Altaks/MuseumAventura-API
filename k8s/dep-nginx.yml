@@ -21,11 +21,6 @@ spec:
               name: volume-sae5-x21
           ports:
             - containerPort: 80
-      volumes:
-        - name: volume-sae5-x21
-          hostPath:
-            path: /app/sfapi
-            type: DirectoryOrCreate
       imagePullSecrets:
         - name: gitlab-auth
 
