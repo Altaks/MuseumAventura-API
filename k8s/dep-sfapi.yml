@@ -21,6 +21,7 @@ spec:
               value: "mysql://$MYSQL_USER:$MYSQL_PASSWORD@svc-database-sae5-x21:3306/$MYSQL_DATABASE?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
           ports:
             - containerPort: 8000
+            - containerPort: 9000
       imagePullSecrets:
         - name: gitlab-auth
 
