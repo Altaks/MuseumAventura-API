@@ -29,7 +29,7 @@ spec:
                   - "-c"
                   - >
                     cd /app/sfapi && composer install -n
-                    chmod 744 /app/sfapi -R
+                    chmod 744 /app/sfapi -r
       imagePullSecrets:
         - name: gitlab-auth
 
