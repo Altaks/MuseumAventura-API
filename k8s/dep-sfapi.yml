@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dep-sfapi-sae5-x21
+  name: dep-api-sae5-x21
   namespace: ns-sae5-x21
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: sfapi
+      component: api
   template:
     metadata:
       labels:
-        component: sfapi
+        component: api
     spec:
       containers:
         - name: sfapi-sae5-x21
@@ -24,6 +24,13 @@ spec:
               value: "mysql://$MYSQL_USER:$MYSQL_PASSWORD@svc-database-sae5-x21:3306/$MYSQL_DATABASE?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
           ports:
             - containerPort: 8000
+        - name: nginx-sae5-x21
+          image: $CI_REGISTRY/$CI_PROJET/nginx
+          volumeMounts:
+            - mountPath: /app/sfapi
+              name: volume-sae5-x21
+          ports:
+            - containerPort: 80
       volumes:
         - name: volume-sae5-x21
           hostPath:
