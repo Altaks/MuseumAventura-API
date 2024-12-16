@@ -1,7 +1,8 @@
 FROM forge-registry.iut-larochelle.fr/nginx/nginx-1.23.3
 
-WORKDIR ./sfapi
+
 COPY ./sfapi /app/sfapi
+WORKDIR ./sfapi
 RUN composer install --no-interaction
 
 # Copy nginx config
