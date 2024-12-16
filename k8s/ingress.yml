@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: svc-sae5-x21-api
+                name: svc-api-sae5-x21
                 port:
                   number: 80
