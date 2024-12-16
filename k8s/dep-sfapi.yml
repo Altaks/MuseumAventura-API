@@ -28,7 +28,7 @@ spec:
                   - "/bin/sh"
                   - "-c"
                   - >
-                    cd /app/sfapi && composer install -n && composer require api &&
+                    cd /app/sfapi && composer install -n &&
                     mkdir migrations &&
                     php bin/console make:migration -n &&
                     php bin/console doctrine:migrations:migrate -n &&
