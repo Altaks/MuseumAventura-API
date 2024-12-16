@@ -16,9 +16,6 @@ spec:
       containers:
         - name: nginx-sae5-x21
           image: $CI_REGISTRY/$CI_PROJET/nginx
-          volumeMounts:
-            - mountPath: /app/sfapi
-              name: volume-sae5-x21
           ports:
             - containerPort: 80
       imagePullSecrets:
