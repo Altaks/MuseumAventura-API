@@ -18,6 +18,14 @@ spec:
           image: $CI_REGISTRY/$CI_PROJET/nginx
           ports:
             - containerPort: 80
+          lifecycle:
+            postStart:
+              exec:
+                command: >
+                  /bin/sh -c "cd /app/sfapi &&
+                  composer install -n &&
+                  chmod 744 /app/sfapi/ -R
+                  "
       imagePullSecrets:
         - name: gitlab-auth
 
