@@ -2,7 +2,7 @@ variables:
   # Cela permet de déterminer en tant que qui/quoi on se connecte à k8s.
   KUBE_CONTEXT: labs-iut-info/labsagent:labsagentiut # A quoi sert cette ligne ?
   KUBECTL: "kubectl --insecure-skip-tls-verify"
-  K8S_NAMESPACE: ns-sae5-X21
+  K8S_NAMESPACE: ns-sae5-x21
 
 .symfony:
   before_script:
@@ -13,6 +13,7 @@ stages:
   - build
   - code-quality
   - sonarqube
+  - deploy
 
 build:
   stage: build
@@ -22,9 +23,13 @@ build:
   tags:
     - docker
   script:
-    - docker build . -t but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} -f build/sfapi/Dockerfile
+    - docker build . -t but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} -f ./Dockerfile
     - docker tag but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
     - docker push $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
+
+    - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} -f ./build/nginx/conf/Dockerfile
+    - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/nginx
+    - docker push $CI_REGISTRY/$CI_PROJET/nginx
 
 # Étape de lint pour PHP
 lint:
@@ -74,23 +79,26 @@ sonarqube-check:
     # Si la variable d'environnement KUBE_CONTEXT est définie, on l'utilise avec kubectl pour le configurer
     - if [ -n "$KUBE_CONTEXT" ]; then kubectl config use-context "$KUBE_CONTEXT"; fi # Quel est le rôle de ce script ?
 
-
-#deploy:
-#  stage: deploy
-#  extends: [.kube-context]
-#  tags :
-#    - docker
-#  environment:
-#    name: production
-#    url: https://app-ci5-amazur01.labs.iut-larochelle.fr
-#  image: roffe/kubectl:v1.13.0 # Pourquoi utilisons-nous cette image ?
-#  script:
-#    - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
-#    - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
-#    - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
-#    - $KUBECTL delete --ignore-not-found=true -f k8s/
-#    - cat k8s/deployment.yml | envsubst | $KUBECTL apply -f -
-#    - cat k8s/cluster.yml | $KUBECTL apply -f -
-#    - cat k8s/ingress.yml | $KUBECTL apply -f -
-#  only:
-#    - main
+deploy:
+  stage: deploy
+  extends: [.kube-context]
+  tags :
+    - docker
+  environment:
+    name: production
+    url: https://sae5-x21-api.labs.iut-larochelle.fr
+  image: roffe/kubectl:v1.13.0 # Pourquoi utilisons-nous cette image ?
+  script:
+    - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
+    - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
+    - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
+    - $KUBECTL delete --ignore-not-found=true -f k8s/
+    - cat k8s/dep-database.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/dep-sfapi.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/dep-nginx.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/svc-database.yml | $KUBECTL apply -f -
+    - cat k8s/svc-sfapi.yml | $KUBECTL apply -f -
+    - cat k8s/svc-nginx.yml | $KUBECTL apply -f -
+    - cat k8s/ingress.yml | $KUBECTL apply -f -
+  only:
+    - main

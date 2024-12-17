@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-sae5-x21
+  namespace: ns-sae5-x21
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: sae5-x21-api.labs.iut-larochelle.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-nginx-sae5-x21
+                port:
+                  number: 80
