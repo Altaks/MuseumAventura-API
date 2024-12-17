@@ -3,43 +3,66 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Enum\DifficultyEnum;
 use App\Repository\CourseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 #[ORM\Entity(repositoryClass: CourseRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new GetCollection(
+            normalizationContext: ['groups' => ['course:readAll']]
+        ),
+        new Get(
+            normalizationContext: ['groups' => ['course:readOne']]
+        )
+    ]
+)]
 class Course
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['course:readOne'])]
     private ?string $description = null;
-
     #[ORM\Column(length: 255)]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $thumbnail = null;
-
     #[ORM\Column(enumType: DifficultyEnum::class)]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?DifficultyEnum $difficulty = null;
-
     /**
      * @var Collection<int, Step>
      */
     #[ORM\OneToMany(targetEntity: Step::class, mappedBy: 'course', orphanRemoval: true)]
+    #[Groups(['course:readOne'])]
     private Collection $steps;
 
     public function __construct()
     {
         $this->steps = new ArrayCollection();
+    }
+
+    #[Groups('course:readAll')]
+    #[SerializedName('description')]
+    public function getShortenedDescription(): string
+    {
+        return substr($this->description, 0, 97) . '...';
     }
 
     public function getId(): ?int

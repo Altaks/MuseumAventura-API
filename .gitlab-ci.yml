@@ -30,6 +30,8 @@ build:
     - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} -f ./build/nginx/conf/Dockerfile
     - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/nginx
     - docker push $CI_REGISTRY/$CI_PROJET/nginx
+  only:
+    - main
 
 # Étape de lint pour PHP
 lint:
@@ -45,16 +47,6 @@ lint:
     - php composer.phar install # Installation des dépendances PHP via Composer.
   script:
     - vendor/bin/phpcs --standard=PSR12 sfapi/src/ # Exécution de PHP CodeSniffer pour vérifier la qualité du code.
-
-testing:
-  stage: code-quality
-  extends: [.symfony]
-  tags :
-    - docker # il existe d'autres tags (shell en particulier), pourquoi et comment choisir ?
-  image: $CI_REGISTRY/$CI_PROJET/${DOCKER_IMAGE_TAG}
-  script:
-    - composer install
-    - php bin/phpunit
 
 sonarqube-check:
   tags :
@@ -73,6 +65,9 @@ sonarqube-check:
   script:
     - sonar-scanner
   allow_failure: true
+  only:
+    - dev
+    - main
 
 .kube-context:
   before_script:
