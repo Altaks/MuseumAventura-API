@@ -100,5 +100,5 @@ deploy:
     - cat k8s/svc-sfapi.yml | $KUBECTL apply -f -
     - cat k8s/svc-nginx.yml | $KUBECTL apply -f -
     - cat k8s/ingress.yml | $KUBECTL apply -f -
-#  only:
-#    - main
+  only:
+    - main
