@@ -11,11 +11,12 @@ use Zenstruck\Foundry\Test\ResetDatabase;
 
 class AppFixtures extends Fixture
 {
-
+    // use the trait to reset the database before loading the fixtures
     use ResetDatabase;
 
     public function load(ObjectManager $manager): void
     {
+
         // $product = new Product();
         // $manager->persist($product);
 

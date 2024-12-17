@@ -39,82 +39,73 @@ final class StepFactory extends PersistentProxyObjectFactory
 
         // generate both type and activity content according to the chosen type
         $type = self::faker()->randomElement(PuzzleTypeEnum::cases());
-        switch ($type) {
-            case PuzzleTypeEnum::GUESSIMAGE_EASY:
-            {
-                $activity = [
-                    'answers' => [
-                        [
-                            'type' => 'TEXT',
-                            'src' => self::faker()->text(255),
-                        ],
-                        [
-                            'type' => 'TEXT',
-                            'src' => self::faker()->text(255),
-                        ],
-                        [
-                            'type' => 'TEXT',
-                            'src' => self::faker()->text(255),
-                        ],
-                        [
-                            'type' => 'TEXT',
-                            'src' => self::faker()->text(255),
-                        ]
+        $activity = match ($type) {
+            PuzzleTypeEnum::GUESSIMAGE_EASY => [
+                'answers' => [
+                    [
+                        'type' => 'TEXT',
+                        'src' => self::faker()->text(255),
                     ],
-                    'hints' => [
-                        [
-                            'text' => 'Hint ' . self::faker()->text(255),
-                            'image' => self::faker()->imageUrl(),
-                        ],
-                        [
-                            'text' => 'Hint ' . self::faker()->text(255),
-                            'image' => self::faker()->imageUrl(),
-                        ],
+                    [
+                        'type' => 'TEXT',
+                        'src' => self::faker()->text(255),
                     ],
-                    'solution' => self::faker()->numberBetween(0, 4),
-                    'question' => self::faker()->text(255),
-                ];
-                break;
-            }
-            case PuzzleTypeEnum::AMONGUS:
-            {
-                $activity = [
-                    'answers' => [
-                        [
-                            'type' => 'IMAGE',
-                            'src' => self::faker()->imageUrl(),
-                        ],
-                        [
-                            'type' => 'IMAGE',
-                            'src' => self::faker()->imageUrl(),
-                        ],
-                        [
-                            'type' => 'IMAGE',
-                            'src' => self::faker()->imageUrl(),
-                        ],
-                        [
-                            'type' => 'IMAGE',
-                            'src' => self::faker()->imageUrl(),
-                        ]
+                    [
+                        'type' => 'TEXT',
+                        'src' => self::faker()->text(255),
                     ],
-                    'hints' => [
-                        [
-                            'text' => 'Hint ' . self::faker()->text(255),
-                            'image' => self::faker()->imageUrl(),
-                        ],
-                        [
-                            'text' => 'Hint ' . self::faker()->text(255),
-                            'image' => self::faker()->imageUrl(),
-                        ]
+                    [
+                        'type' => 'TEXT',
+                        'src' => self::faker()->text(255),
+                    ]
+                ],
+                'hints' => [
+                    [
+                        'text' => 'Hint ' . self::faker()->text(255),
+                        'image' => self::faker()->imageUrl(),
                     ],
-                    'solution' => self::faker()->numberBetween(0, 4),
-                    'question' => 'Question ? : ' . self::faker()->text(255) . '?'
-                ];
-                break;
-            }
-            default:
-                throw new IllogicalValuesException('Puzzle type not supported');
-        }
+                    [
+                        'text' => 'Hint ' . self::faker()->text(255),
+                        'image' => self::faker()->imageUrl(),
+                    ],
+                ],
+                'solution' => self::faker()->numberBetween(0, 4),
+                'question' => self::faker()->text(255),
+            ],
+            PuzzleTypeEnum::AMONGUS => [
+                'answers' => [
+                    [
+                        'type' => 'IMAGE',
+                        'src' => self::faker()->imageUrl(),
+                    ],
+                    [
+                        'type' => 'IMAGE',
+                        'src' => self::faker()->imageUrl(),
+                    ],
+                    [
+                        'type' => 'IMAGE',
+                        'src' => self::faker()->imageUrl(),
+                    ],
+                    [
+                        'type' => 'IMAGE',
+                        'src' => self::faker()->imageUrl(),
+                    ]
+                ],
+                'hints' => [
+                    [
+                        'text' => 'Hint ' . self::faker()->text(255),
+                        'image' => self::faker()->imageUrl(),
+                    ],
+                    [
+                        'text' => 'Hint ' . self::faker()->text(255),
+                        'image' => self::faker()->imageUrl(),
+                    ]
+                ],
+                'solution' => self::faker()->numberBetween(0, 4),
+                'question' => 'Question ? : ' . self::faker()->text(255) . '?'
+            ],
+            default => throw new IllogicalValuesException('Puzzle type not supported'),
+        };
 
         return [
             'activity' => $activity,
