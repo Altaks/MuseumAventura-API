@@ -38,7 +38,7 @@ class Course
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $description = null;
     #[ORM\Column(length: 255)]
     #[Groups(['course:readAll', 'course:readOne'])]
@@ -50,20 +50,28 @@ class Course
      * @var Collection<int, Step>
      */
     #[ORM\OneToMany(targetEntity: Step::class, mappedBy: 'course', orphanRemoval: true)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private Collection $steps;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['course:readAll', 'course:readOne'])]
+    private ?string $reward = null;
+
+    #[ORM\Column]
+    #[Groups(['course:readAll', 'course:readOne'])]
+    private ?int $duration = null;
 
     public function __construct()
     {
         $this->steps = new ArrayCollection();
     }
 
-    #[Groups('course:readAll')]
-    #[SerializedName('description')]
-    public function getShortenedDescription(): string
-    {
-        return substr($this->description, 0, 97) . '...';
-    }
+//    #[Groups('course:readAll')]
+//    #[SerializedName('description')]
+//    public function getShortenedDescription(): string
+//    {
+//        return substr($this->description, 0, 97) . '...';
+//    }
 
     public function getId(): ?int
     {
@@ -144,6 +152,30 @@ class Course
                 $step->setCourse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getReward(): ?string
+    {
+        return $this->reward;
+    }
+
+    public function setReward(string $reward): static
+    {
+        $this->reward = $reward;
+
+        return $this;
+    }
+
+    public function getDuration(): ?int
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(int $duration): static
+    {
+        $this->duration = $duration;
 
         return $this;
     }

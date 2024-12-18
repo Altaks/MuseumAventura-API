@@ -7,6 +7,7 @@ use App\Enum\PuzzleTypeEnum;
 use App\Repository\StepRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 #[ORM\Entity(repositoryClass: StepRepository::class)]
 #[ApiResource()]
@@ -15,44 +16,51 @@ class Step
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $title = null;
 
     #[ORM\Column(enumType: PuzzleTypeEnum::class)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?PuzzleTypeEnum $type = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $reward = null;
 
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private array $story = [];
 
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private array $activity = [];
 
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private array $success = [];
 
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private array $failure = [];
 
     #[ORM\ManyToOne(inversedBy: 'steps')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Course $course = null;
 
+    #[SerializedName('course')]
+    #[Groups(['course:readAll', 'course:readOne'])]
+    public function getCourseId()
+    {
+        return $this->course->getId();
+    }
+
     #[ORM\ManyToOne(inversedBy: 'steps')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?Room $room = null;
 
     public function getId(): ?int

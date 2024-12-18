@@ -36,7 +36,9 @@ final class CourseFactory extends PersistentProxyObjectFactory
             'description' => self::faker()->text(),
             'difficulty' => self::faker()->randomElement(DifficultyEnum::cases()),
             'thumbnail' => self::faker()->imageUrl(),
-            'title' => self::faker()->text(255),
+            'title' => self::faker()->text(50),
+            'reward' => self::faker()->imageUrl(),
+            'duration' => self::faker()->numberBetween(10, 45)
         ];
     }
 
