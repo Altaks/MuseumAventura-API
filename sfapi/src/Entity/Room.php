@@ -18,19 +18,19 @@ class Room
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?int $id = null;
 
     #[ORM\Column]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?int $floor = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['course:readOne'])]
+    #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $image = null;
 
     /**

@@ -44,19 +44,19 @@ final class StepFactory extends PersistentProxyObjectFactory
                 'answers' => [
                     [
                         'type' => 'TEXT',
-                        'src' => self::faker()->text(255),
+                        'content' => self::faker()->text(255),
                     ],
                     [
                         'type' => 'TEXT',
-                        'src' => self::faker()->text(255),
+                        'content' => self::faker()->text(255),
                     ],
                     [
                         'type' => 'TEXT',
-                        'src' => self::faker()->text(255),
+                        'content' => self::faker()->text(255),
                     ],
                     [
                         'type' => 'TEXT',
-                        'src' => self::faker()->text(255),
+                        'content' => self::faker()->text(255),
                     ]
                 ],
                 'hints' => [
@@ -69,7 +69,8 @@ final class StepFactory extends PersistentProxyObjectFactory
                         'image' => self::faker()->imageUrl(),
                     ],
                 ],
-                'solution' => self::faker()->numberBetween(0, 4),
+                'ref_image' => self::faker()->imageUrl(),
+                'solution' => self::faker()->numberBetween(0, 3),
                 'question' => self::faker()->text(255),
             ],
             PuzzleTypeEnum::AMONGUS => [
@@ -101,7 +102,7 @@ final class StepFactory extends PersistentProxyObjectFactory
                         'image' => self::faker()->imageUrl(),
                     ]
                 ],
-                'solution' => self::faker()->numberBetween(0, 4),
+                'solution' => self::faker()->numberBetween(0, 3),
                 'question' => 'Question ? : ' . self::faker()->text(255) . '?'
             ],
             default => throw new IllogicalValuesException('Puzzle type not supported'),
