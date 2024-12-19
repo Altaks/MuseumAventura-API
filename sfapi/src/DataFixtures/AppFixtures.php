@@ -19,7 +19,12 @@ class AppFixtures extends Fixture
     {
         $course = new Course();
         $course->setTitle('La malédiction du masque Gélédé')
-            ->setDescription("Marguerite a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés par le masque viennent voler les œuvres du musée. Parcourir le musée à la recherche des objets permettant de lever la malédiction avant qu'il ne soit trop tard. Réunir un instrument, un poil d'animal et une statue. Une fois réunie, le rituel pour lever la malédiction peut se faire.")
+            ->setDescription(
+                "Marguerite a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés par le masque " .
+                "viennent voler les œuvres du musée. Parcourir le musée à la recherche des objets permettant de lever " .
+                "la malédiction avant qu'il ne soit trop tard. Réunir un instrument, un poil d'animal et une statue. " .
+                "Une fois réunie, le rituel pour lever la malédiction peut se faire."
+            )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
             ->setReward('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
@@ -149,85 +154,27 @@ class AppFixtures extends Fixture
                         ['type' => 'IMAGE', 'src' => 'https://drive.google.com/file/d/1z2WW4X935pymcnAkmSl6mx6ZtW4oPmft/view?usp=drive_link'],
                     ],
                     'hints' => [
-                        ['image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link', 'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant.'],
+                        ['image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link', 'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes dans la salle avant !'],
                     ],
-                    'solution' => 1,
-                    'question' => "Quel instrument n\'est pas présent dans la salle ?",
+                    'solution' => 3,
+                    'question' => 'Quel instrument est une illusion créée par le masque gélédé ?',
                 ],
                 'success' => [
                     [
                         'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Oui, c\'est celui-là ! Cet instrument n\'a rien à faire ici !',
+                        'text' => 'Bravo, tu as trouvé le bon instrument !',
                     ],
                     [
                         'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'C\'est un piège du masque gélédé !',
+                        'text' => 'Ce n\'est effectivement pas un instrument musical !',
                     ],
                     [
                         'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Je m\'occupe de le faire disparaître, tu peux te rendre à la salle suivante en attendant.',
+                        'text' => 'N\'oublie pas de bien examiner les autres objets de la salle !',
                     ],
                     [
                         'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => ' Direction la salle des arts décoratifs extra-européens, qui se situe juste en face de notre salle actuelle, à l\'étage 2.',
-                    ],
-                ],
-                'failure' => [
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
-                    ],
-                ],
-            ],
-            [
-                'title' => 'Retrouve la statue',
-                'room' => 3,
-                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
-                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
-                'story' => [
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Le dernier élèment dont nous avons besoin se situe dans cette salle.',
-                    ],
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Nous devons trouver la statue qui nous permettra de lever la malédiction.',
-                    ],
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Pourras-tu retrouver la statue à partir de sa forme  ?',
-                    ],
-                ],
-                'activity' => [
-                    'ref_image' => 'https://drive.google.com/file/d/1q4ay19SyA5GzpxggrR6aKUXtuk_WcnCn/view?usp=drive_link',
-                    'answers' => [
-                        ['type' => 'IMAGE', 'src' => 'https://drive.google.com/file/d/1hCkb24JWRSF72-59s3MYPTRRPsoFI4Iv/view?usp=drive_link'],
-                        ['type' => 'IMAGE', 'src' => 'https://drive.google.com/file/d/10ZoS9PBKkQF8jGF4Kfq80uQ-mCnB3g2Z/view?usp=drive_link'],
-                        ['type' => 'IMAGE', 'src' => 'https://drive.google.com/file/d/1erWm5Is_KsrB_x7MRxiG0LIHuza306Gd/view?usp=drive_link'],
-                        ['type' => 'IMAGE', 'src' => 'https://drive.google.com/file/d/1bfllzX1VWHwyzVe-xRoGfNjkLl9S7Z2U/view?usp=drive_link'],
-                    ],
-                    'hints' => [
-                        ['image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link', 'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant.'],
-                    ],
-                    'solution' => 0,
-                    'question' => "À quelle statue appartient cette ombre ?",
-                ],
-                'success' => [
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Félicitations, tu as de très bons yeux !',
-                    ],
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'C\'est la statue XXX que nous cherchons.',
-                    ],
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Nous pouvons enfin nous rendre devant le masque gélédé pour lever la malédiction !',
-                    ],
-                    [
-                        'image' => 'https://drive.google.com/file/d/12BeWqQm7wv9iKHLhM08swWayu7_Txz-7/view?usp=drive_link',
-                        'text' => 'Allons au dernier étage, dans la salle des masques !',
+                        'text' => 'Continuons de notre quête !',
                     ],
                 ],
                 'failure' => [
