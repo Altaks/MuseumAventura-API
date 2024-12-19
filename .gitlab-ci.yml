@@ -11,8 +11,8 @@ variables:
 
 stages:
   - build
-#  - code-quality
-#  - sonarqube
+  - code-quality
+  - sonarqube
   - deploy
 
 build:
