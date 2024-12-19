@@ -22,9 +22,9 @@ class AppFixtures extends Fixture
             ->setDescription(
                 "Marguerite a besoin de vous pour lever la malédiction du masque gélédé. Des monstres " .
                 "attirés par le masque " .
-                "viennent voler les œuvres du musée. Parcourir le musée à la recherche des objets permettant de lever ".
-                "la malédiction avant qu'il ne soit trop tard. Réunir un instrument, un poil d'animal et une statue. " .
-                "Une fois réunie, le rituel pour lever la malédiction peut se faire."
+                "viennent voler les œuvres du musée. Parcourir le musée à la recherche des objets permettant de " .
+                "lever la malédiction avant qu'il ne soit trop tard. Réunir un instrument, un poil d'animal et une " .
+                "statue.Une fois réunie, le rituel pour lever la malédiction peut se faire."
             )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
