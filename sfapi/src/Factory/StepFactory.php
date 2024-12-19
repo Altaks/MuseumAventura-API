@@ -69,6 +69,7 @@ final class StepFactory extends PersistentProxyObjectFactory
                         'image' => self::faker()->imageUrl(),
                     ],
                 ],
+                'ref_image' => self::faker()->imageUrl(),
                 'solution' => self::faker()->numberBetween(0, 3),
                 'question' => self::faker()->text(255),
             ],
