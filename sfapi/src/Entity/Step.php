@@ -27,7 +27,7 @@ class Step
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?PuzzleTypeEnum $type = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 2000)]
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $reward = null;
 
