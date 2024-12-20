@@ -387,8 +387,7 @@ class AppFixtures extends Fixture
                     ],
                 ],
             ],
-        ];  
-
+        ];
 
         foreach ($stepsData as $stepData) {
             $step = new Step();
