@@ -39,7 +39,7 @@ class Course
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $description = null;
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 2000)]
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $thumbnail = null;
     #[ORM\Column(enumType: DifficultyEnum::class)]
@@ -52,7 +52,7 @@ class Course
     #[Groups(['course:readAll', 'course:readOne'])]
     private Collection $steps;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 2000)]
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $reward = null;
 

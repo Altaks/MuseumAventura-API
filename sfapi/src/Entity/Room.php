@@ -29,7 +29,7 @@ class Room
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 2000)]
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $image = null;
 
