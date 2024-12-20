@@ -30,8 +30,8 @@ build:
     - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} -f ./build/nginx/conf/Dockerfile
     - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/nginx
     - docker push $CI_REGISTRY/$CI_PROJET/nginx
-#  only:
-#    - main
+  only:
+    - main
 
 # Étape de lint pour PHP
 lint:
@@ -65,9 +65,9 @@ sonarqube-check:
   script:
     - sonar-scanner
   allow_failure: true
-#  only:
-#    - dev
-#    - main
+  only:
+    - dev
+    - main
 
 .kube-context:
   before_script:
@@ -95,5 +95,5 @@ deploy:
     - cat k8s/svc-sfapi.yml | $KUBECTL apply -f -
     - cat k8s/svc-nginx.yml | $KUBECTL apply -f -
     - cat k8s/ingress.yml | $KUBECTL apply -f -
-#  only:
-#    - main
+  only:
+    - main
