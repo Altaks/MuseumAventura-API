@@ -27,19 +27,38 @@ build:
     - docker tag but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
     - docker push $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG
 
-    - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} -f ./build/nginx/conf/Dockerfile
+    - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} -f ./build/nginx/prod/Dockerfile
     - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA} $CI_REGISTRY/$CI_PROJET/nginx
     - docker push $CI_REGISTRY/$CI_PROJET/nginx
   only:
     - main
 
+build-dev:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker info
+  tags:
+    - docker
+  script:
+    - docker build . -t but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA}-dev -f ./Dockerfile
+    - docker tag but3/x21/sae5-api-${CI_COMMIT_SHORT_SHA}-dev $CI_REGISTRY/$CI_PROJET/${DOCKER_IMAGE_TAG}-dev
+    - docker push $CI_REGISTRY/$CI_PROJET/${DOCKER_IMAGE_TAG}-dev
+
+    - docker build . -t but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA}-dev -f ./build/nginx/dev/Dockerfile
+    - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA}-dev $CI_REGISTRY/$CI_PROJET/nginx-dev
+    - docker push $CI_REGISTRY/$CI_PROJET/nginx-dev
+  only:
+    - dev
+
 # Étape de lint pour PHP
 lint:
-  stage: code-quality  # Assignation de l'étape combinée `lint-test`.
+  stage: code-quality
   extends: [.symfony]
-  image: php:8.2-cli # Utilisation d'une image PHP CLI pour exécuter les commandes.
+  # Utilisation d'une image PHP CLI pour exécuter les commandes.
+  image: php:8.2-cli
   tags:
-    - docker        # Ce job sera exécuté sur les runners taggés avec `docker`.
+    - docker
   before_script:
     - apt-get update && apt-get install -y git unzip # Installer les dépendances nécessaires comme Composer.
     - curl -sS https://getcomposer.org/installer | php # Installer Composer.
@@ -50,7 +69,7 @@ lint:
 
 sonarqube-check:
   tags :
-    - docker # il existe d'autres tags (shell en particulier), pourquoi et comment choisir ?
+    - docker
   stage: sonarqube
   image:
     name: sonarsource/sonar-scanner-cli:latest
@@ -67,7 +86,6 @@ sonarqube-check:
   allow_failure: true
   only:
     - dev
-    - main
 
 .kube-context:
   before_script:
@@ -82,18 +100,42 @@ deploy:
   environment:
     name: production
     url: https://sae5-x21-api.labs.iut-larochelle.fr
+  image: roffe/kubectl:v1.13.0
+  script:
+    - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
+    - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
+    - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
+    - $KUBECTL delete --ignore-not-found=true -f k8s/prod/
+    - cat k8s/prod/dep-database.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/prod/dep-sfapi.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/prod/dep-nginx.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/prod/svc-database.yml | $KUBECTL apply -f -
+    - cat k8s/prod/svc-sfapi.yml | $KUBECTL apply -f -
+    - cat k8s/prod/svc-nginx.yml | $KUBECTL apply -f -
+    - cat k8s/prod/ingress.yml | $KUBECTL apply -f -
+  only:
+    - main
+
+deploy-dev:
+  stage: deploy
+  extends: [.kube-context]
+  tags :
+    - docker
+  environment:
+    name: development
+    url: https://sae5-x21-api-dev.labs.iut-larochelle.fr
   image: roffe/kubectl:v1.13.0 # Pourquoi utilisons-nous cette image ?
   script:
     - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
     - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
     - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
-    - $KUBECTL delete --ignore-not-found=true -f k8s/
-    - cat k8s/dep-database.yml | envsubst | $KUBECTL apply -f -
-    - cat k8s/dep-sfapi.yml | envsubst | $KUBECTL apply -f -
-    - cat k8s/dep-nginx.yml | envsubst | $KUBECTL apply -f -
-    - cat k8s/svc-database.yml | $KUBECTL apply -f -
-    - cat k8s/svc-sfapi.yml | $KUBECTL apply -f -
-    - cat k8s/svc-nginx.yml | $KUBECTL apply -f -
-    - cat k8s/ingress.yml | $KUBECTL apply -f -
+    - $KUBECTL delete --ignore-not-found=true -f k8s/dev/
+    - cat k8s/dev/dep-database.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/dev/dep-sfapi.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/dev/dep-nginx.yml | envsubst | $KUBECTL apply -f -
+    - cat k8s/dev/svc-database.yml | $KUBECTL apply -f -
+    - cat k8s/dev/svc-sfapi.yml | $KUBECTL apply -f -
+    - cat k8s/dev/svc-nginx.yml | $KUBECTL apply -f -
+    - cat k8s/dev/ingress.yml | $KUBECTL apply -f -
   only:
-    - main
+    - dev
