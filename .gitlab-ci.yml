@@ -49,7 +49,7 @@ build-dev:
     - docker tag but3/x21/sae5-nginx-${CI_COMMIT_SHORT_SHA}-dev $CI_REGISTRY/$CI_PROJET/nginx-dev
     - docker push $CI_REGISTRY/$CI_PROJET/nginx-dev
   only:
-    - task/ci-cd-dev
+    - dev
 
 # Étape de lint pour PHP
 lint:
@@ -86,7 +86,6 @@ sonarqube-check:
   allow_failure: true
   only:
     - dev
-    - main
 
 .kube-context:
   before_script:
@@ -139,4 +138,4 @@ deploy-dev:
     - cat k8s/dev/svc-nginx.yml | $KUBECTL apply -f -
     - cat k8s/dev/ingress.yml | $KUBECTL apply -f -
   only:
-    - task/ci-cd-dev
+    - dev
