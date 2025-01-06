@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-nginx-sae5-x21-dev
+  namespace: ns-sae5-x21
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: nginx-dev
+  template:
+    metadata:
+      labels:
+        component: nginx-dev
+    spec:
+      containers:
+        - name: nginx-sae5-x21-dev-1
+          image: $CI_REGISTRY/$CI_PROJET/nginx-dev
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: gitlab-auth
+

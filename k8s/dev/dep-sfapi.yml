@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-sfapi-sae5-x21-dev
+  namespace: ns-sae5-x21
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: sfapi-dev
+  template:
+    metadata:
+      labels:
+        component: sfapi-dev
+    spec:
+      containers:
+        - name: sfapi-sae5-x21-dev-1
+          image: $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG-dev
+          env:
+            - name: DATABASE_URL
+              value: "mysql://$MYSQL_USER:$MYSQL_PASSWORD@svc-database-sae5-x21-dev-1:3306/$MYSQL_DATABASE?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
+          ports:
+            - containerPort: 9000
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - "/bin/sh"
+                  - "-c"
+                  - >
+                    cd /app/sfapi && composer install -n &&
+                    mkdir migrations &&
+                    php bin/console make:migration -n &&
+                    php bin/console doctrine:migrations:migrate -n &&
+                    php bin/console d:f:l -q
+      imagePullSecrets:
+        - name: gitlab-auth
+

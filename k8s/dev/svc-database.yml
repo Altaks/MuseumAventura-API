@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-database-sae5-x21-dev
+  namespace: ns-sae5-x21
+  labels:
+    component: database-dev
+spec:
+  type: ClusterIP
+  selector:
+    component: database-dev
+  ports:
+    - port: 3306
+      targetPort: 3306

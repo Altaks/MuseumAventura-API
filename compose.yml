@@ -4,7 +4,7 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: ./build/nginx/Dockerfile
+      dockerfile: ./build/nginx/local/Dockerfile
     image: ${COMPOSE_PROJECT_NAME}-nginx
     container_name: ${COMPOSE_PROJECT_NAME}-nginx
     volumes:
