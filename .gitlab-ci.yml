@@ -139,4 +139,4 @@ deploy-dev:
     - cat k8s/dev/svc-nginx.yml | $KUBECTL apply -f -
     - cat k8s/dev/ingress.yml | $KUBECTL apply -f -
   only:
-    - main
+    - task/ci-cd-dev
