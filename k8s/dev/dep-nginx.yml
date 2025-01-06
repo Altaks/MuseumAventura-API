@@ -14,7 +14,7 @@ spec:
         component: nginx-dev
     spec:
       containers:
-        - name: nginx-sae5-x21-dev-1
+        - name: nginx-sae5-x21-dev
           image: $CI_REGISTRY/$CI_PROJET/nginx-dev
           ports:
             - containerPort: 80

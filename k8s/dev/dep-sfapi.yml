@@ -14,11 +14,11 @@ spec:
         component: sfapi-dev
     spec:
       containers:
-        - name: sfapi-sae5-x21-dev-1
+        - name: sfapi-sae5-x21-dev
           image: $CI_REGISTRY/$CI_PROJET/$DOCKER_IMAGE_TAG-dev
           env:
             - name: DATABASE_URL
-              value: "mysql://$MYSQL_USER:$MYSQL_PASSWORD@svc-database-sae5-x21-dev-1:3306/$MYSQL_DATABASE?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
+              value: "mysql://$MYSQL_USER:$MYSQL_PASSWORD@svc-database-sae5-x21-dev:3306/$MYSQL_DATABASE?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
           ports:
             - containerPort: 9000
           lifecycle:

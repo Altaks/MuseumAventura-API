@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: sae5-x21-api-dev-1.labs.iut-larochelle.fr
+    - host: sae5-x21-api-dev.labs.iut-larochelle.fr
       http:
         paths:
           - path: /
