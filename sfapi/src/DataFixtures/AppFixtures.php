@@ -75,23 +75,23 @@ class AppFixtures extends Fixture
                 'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
                 'story' => [
                     [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/zarafa_i" .
-                            "con.webp",
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
                         'text' => 'Nous voilà dans la galerie de zoologie !',
                     ],
                     [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/zarafa_i" .
-                            "con.webp",
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
                         'text' => 'Je ne sais malheuresement pas à quoi ressemble l\'animal que nous recherchons...',
                     ],
                     [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/zarafa_i" .
-                            "con.webp",
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
                         'text' => 'En revanche, j\'ai une plume appartenant à ce dernier.',
                     ],
                     [
-                        'image' => 'https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/zarafa_i" .
-                            "con.webp',
+                        'image' => 'https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp',
                         'text' => 'Sauras-tu retrouver à quel animal il appartient ?',
                     ],
                 ],
