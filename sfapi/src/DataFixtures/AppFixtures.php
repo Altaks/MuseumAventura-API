@@ -247,8 +247,8 @@ class AppFixtures extends Fixture
                     ],
                 ],
                 'activity' => [
-                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
-                        "afa_icon.webp",
+                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/statue_c" .
+                        "ache.webp",
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
                             "lic/Musee/20241218_170626.webp"],
