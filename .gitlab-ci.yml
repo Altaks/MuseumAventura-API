@@ -62,7 +62,7 @@ lint:
   before_script:
     - apt-get update && apt-get install -y git unzip # Installer les dépendances nécessaires comme Composer.
     - curl -sS https://getcomposer.org/installer | php # Installer Composer.
-    - echo "a" | php composer.phar require --dev-1 squizlabs/php_codesniffer # Installation silencieuse de PHP CodeSniffer avec réponse automatique "a".
+    - echo "a" | php composer.phar require --dev squizlabs/php_codesniffer # Installation silencieuse de PHP CodeSniffer avec réponse automatique "a".
     - php composer.phar install # Installation des dépendances PHP via Composer.
   script:
     - vendor/bin/phpcs --standard=PSR12 sfapi/src/ # Exécution de PHP CodeSniffer pour vérifier la qualité du code.
