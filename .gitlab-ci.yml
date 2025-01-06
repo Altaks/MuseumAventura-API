@@ -106,7 +106,7 @@ deploy:
     - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
     - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
     - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
-    - $KUBECTL delete --ignore-not-found=true -f k8s/
+    - $KUBECTL delete --ignore-not-found=true -f k8s/prod/
     - cat k8s/prod/dep-database.yml | envsubst | $KUBECTL apply -f -
     - cat k8s/prod/dep-sfapi.yml | envsubst | $KUBECTL apply -f -
     - cat k8s/prod/dep-nginx.yml | envsubst | $KUBECTL apply -f -
@@ -130,7 +130,7 @@ deploy-dev:
     - if ! $KUBECTL get ns | grep $K8S_NAMESPACE ; then $KUBECTL create namespace $K8S_NAMESPACE ; fi
     - $KUBECTL delete --ignore-not-found=true secret gitlab-auth --namespace=$K8S_NAMESPACE
     - $KUBECTL create secret docker-registry gitlab-auth --docker-server=${CI_REGISTRY} --docker-username=${CI_REGISTRY_USER} --docker-password=${CI_JOB_TOKEN} --namespace=${K8S_NAMESPACE}
-    - $KUBECTL delete --ignore-not-found=true -f k8s/
+    - $KUBECTL delete --ignore-not-found=true -f k8s/dev/
     - cat k8s/dev/dep-database.yml | envsubst | $KUBECTL apply -f -
     - cat k8s/dev/dep-sfapi.yml | envsubst | $KUBECTL apply -f -
     - cat k8s/dev/dep-nginx.yml | envsubst | $KUBECTL apply -f -
