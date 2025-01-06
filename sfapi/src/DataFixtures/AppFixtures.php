@@ -116,7 +116,7 @@ class AppFixtures extends Fixture
                         ],
                     ],
                     'solution' => 2,
-                    'question' => "À quelle plume appartient cet animal ?",
+                    'question' => "À quel animal appartient cette plume ?",
                 ],
                 'success' => [
                     [
