@@ -29,6 +29,10 @@ class Room
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $name = null;
 
+    #[ORM\Column(length: 5)]
+    #[Groups(['course:readAll', 'course:readOne'])]
+    private ?string $code = null;
+
     #[ORM\Column(length: 2000)]
     #[Groups(['course:readAll', 'course:readOne'])]
     private ?string $image = null;
@@ -69,6 +73,18 @@ class Room
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
 
         return $this;
     }
