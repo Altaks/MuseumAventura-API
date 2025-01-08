@@ -39,6 +39,7 @@ class AppFixtures extends Fixture
                 'id' => 1,
                 'floor' => 2,
                 'name' => 'Salle des arts musicaux',
+                'code' => '12345',
                 'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/2etage" .
                     "/r24.webp",
             ],
@@ -46,6 +47,7 @@ class AppFixtures extends Fixture
                 'id' => 2,
                 'floor' => 1,
                 'name' => 'Galerie de zoologie',
+                'code' => '12345',
                 'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/1etage" .
                     "/r9.webp",
             ],
@@ -53,6 +55,7 @@ class AppFixtures extends Fixture
                 'id' => 3,
                 'floor' => 2,
                 'name' => 'Salle des arts décoratifs extra-européens',
+                'code' => '12345',
                 'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/2etage" .
                     "/r23.webp",
             ],
@@ -62,6 +65,7 @@ class AppFixtures extends Fixture
             $room = new Room();
             $room->setFloor($roomData['floor'])
                 ->setName($roomData['name'])
+                ->setCode($roomData['code'])
                 ->setImage($roomData['image']);
             $manager->persist($room);
             $rooms[$roomData['id']] = $room;
