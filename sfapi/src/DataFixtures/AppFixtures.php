@@ -20,10 +20,10 @@ class AppFixtures extends Fixture
         $course = new Course();
         $course->setTitle('La malédiction du masque Gélédé')
             ->setDescription(
-                "Marguerite a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés par le" .
-                "masque viennent voler les œuvres du musée. Parcourir le musée à la recherche des objets permettant " .
-                "de lever la malédiction avant qu'il ne soit trop tard. Réunir un instrument, un poil d'animal et " .
-                "une statue.Une fois réunie, le rituel pour lever la malédiction peut se faire."
+                "Zarafa a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés par le" .
+                " masque viennent voler les œuvres du musée. Parcourez le musée à la recherche des objets permettant " .
+                "de lever la malédiction avant qu'il ne soit trop tard. Réunissez un instrument, un poil d'animal et " .
+                "une statue. Une fois réunis, le rituel pour lever la malédiction pourra se faire."
             )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
@@ -86,7 +86,12 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Je ne sais malheuresement pas à quoi ressemble l\'animal que nous recherchons...',
+                        'text' => 'Il y a vraiment beaucoup d\'animaux aussi !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Malheuresement, je ne sais pas à quoi ressemble l\'animal que nous recherchons...',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -116,7 +121,7 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/zarafa_icon.webp",
-                            'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il peut'
+                            'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il le peut !'
                         ],
                     ],
                     'solution' => 2,
@@ -131,7 +136,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Cette plume appartient effectivement à une chouette hulotte',
+                        'text' => 'Cette plume appartient effectivement à une chouette hulotte.',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -142,15 +147,19 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "Maintenant, allons chercher notre instrument ! Rendez-vous dans la salle des arts" .
-                            " musicaux (salle 24) à l'étage 2",
+                        'text' => "Maintenant, allons chercher l'instrument dont nous avons besoin ! ",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Rendez-vous dans la salle des arts musicaux (salle 24) à l'étage 2 !",
                     ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
+                        'text' => 'Non, ce n\'est pas cet animal on dirait... Réessaie !',
                     ],
                 ],
             ],
@@ -191,7 +200,7 @@ class AppFixtures extends Fixture
                     'hints' => [
                         ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
                             "rafa_icon.webp",
-                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant.'],
+                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant...'],
                     ],
                     'solution' => 1,
                     'question' => 'Quel instrument n\'est pas présent dans la salle ?',
@@ -224,7 +233,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
+                        'text' => 'Non, cet instrument est bien présent dans la salle, essayons un autre !',
                     ],
                 ],
             ],
@@ -267,7 +276,7 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/zarafa_icon.webp",
-                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant.'
+                            'text' => 'En regardant la taille de l\'ombre de plus près, c\'est une statue grande et large.',
                         ],
                     ],
                     'solution' => 0,
@@ -287,20 +296,24 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "Nous pouvons enfin nous rendre devant le masque gélédé pour lever la malédiction " .
-                            "!",
+                        'text' => "Grâce à toi, la malédiction du masque pourra être levée pour de bon ! " ,
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Allons au dernier étage, dans la salle des masques !',
+                        'text' => 'Merci à toi Visiteur, le musée peut désormais continuer à vivre sereinement !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'N\'hésite pas à venir au troisième étage pour admirer l\'inoffensif masque Gélédé',
                     ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
+                        'text' => 'On ne dirait pas que cette statue correspond à l\'ombre présentée...',
                     ],
                 ],
             ],
