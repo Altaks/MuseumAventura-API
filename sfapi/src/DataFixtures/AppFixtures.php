@@ -89,8 +89,8 @@ class AppFixtures extends Fixture
                 'floor' => -1,
                 'name' => 'Salle des pierres précieuses',
                 'code' => '12345',
-                'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/3etage/" .
-                    "r6.webp",
+                'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/s" .
+                    "ous-sol/r6.webp",
             ],
         ];
 
@@ -271,7 +271,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Effectivement tu as raison, cette parte appartient bien au caméléon verruqueux !',
+                        'text' => 'Effectivement tu as raison, cette patte appartient bien au caméléon verruqueux !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -382,7 +382,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "\"Félications visiteurs. Vous avez mis la main sur le trésor de cette carte." .
+                        'text' => "\"Félications visiteurs. Vous avez mis la main sur le trésor de cette carte. " .
                             "En réalité, toutes les pierres présentes ici font parties de mon trésor, et elles sont" .
                         " en sécurité ici, j'en suis convaincu. Je vous pris de bien vouloir admirer la beauté" .
                         " de ce à quoi j'ai consacré ma vie, et je vous demande, comme j'ai pu le faire durant ma vie" .
