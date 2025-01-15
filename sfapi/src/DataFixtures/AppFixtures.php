@@ -246,6 +246,9 @@ class AppFixtures extends Fixture
                     ],
                 ],
                 'activity' => [
+                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/bras_ca" .
+                            "meleon.webp",
+                        "ache.webp",
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
                             "lic/Musee/crocrodile_nain.webp"],
@@ -343,8 +346,6 @@ class AppFixtures extends Fixture
                     ],
                 ],
                 'activity' => [
-                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/statue_c" .
-                        "ache.webp",
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/440315/image1000.jpeg"],
                         ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/417911/image1000.jpeg"],
