@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
         $course = new Course();
         $course->setTitle('La malédiction du masque Gélédé')
             ->setDescription(
-                "Zarafa a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés" .
+                "Zarafa a besoin de vous pour lever la malédiction du masque Gélédé. Des monstres attirés" .
                 " par le masque viennent voler les œuvres du musée. Parcourez le musée à la recherche des objets " .
                 "permettant de lever la malédiction avant qu'il ne soit trop tard. Réunissez un instrument, un poil" .
                 " d'animal et une statue. Une fois réunis, le rituel pour lever la malédiction pourra se faire."
@@ -158,7 +158,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "D : Je suis peint en bleu et blanc avec des rayures horionzontales sur le visage, " .
+                        'text' => "D : Je suis peint en bleu et blanc avec des rayures horizontales sur le visage, " .
                         "et j'ai, sur la tête, des points orientées vers la même direction.",
                     ],
                     [
@@ -267,11 +267,12 @@ class AppFixtures extends Fixture
                     'solution' => 2,
                     'question' => 'À quel animal appartient cette patte ?',
                 ],
+                //given
                 'success' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Effectivement tu as raison, cette patte appartient bien au caméléon verruqueux !',
+                        'text' => 'Effectivement, tu as raison, cette patte appartient bien au caméléon verruqueux !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -397,7 +398,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "Je te remercie Visiteur. Grâce à toi, le mystère de la carte au trésor est résolue" .
+                        'text' => "Je te remercie Visiteur. Grâce à toi, le mystère de la carte au trésor est résolu" .
                         ". Nous devrions malgré tout laisser son trésor ici, et laisser tout le monde profiter " .
                         "de sa beauté !",
                     ],
