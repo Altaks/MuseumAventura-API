@@ -306,7 +306,7 @@ class AppFixtures extends Fixture
             ],
             [
                 'title' => 'Quel est le trésor ?',
-                'room' => 3,
+                'room' => 5,
                 'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
                 'type' => PuzzleTypeEnum::AMONGUS,
                 'story' => [
