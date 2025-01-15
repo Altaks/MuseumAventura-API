@@ -20,17 +20,34 @@ class AppFixtures extends Fixture
         $course = new Course();
         $course->setTitle('La malédiction du masque Gélédé')
             ->setDescription(
-                "Marguerite a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés par le" .
-                "masque viennent voler les œuvres du musée. Parcourir le musée à la recherche des objets permettant " .
-                "de lever la malédiction avant qu'il ne soit trop tard. Réunir un instrument, un poil d'animal et " .
-                "une statue.Une fois réunie, le rituel pour lever la malédiction peut se faire."
+                "Zarafa a besoin de vous pour lever la malédiction du masque gélédé. Des monstres attirés" .
+                " par le masque viennent voler les œuvres du musée. Parcourez le musée à la recherche des objets " .
+                "permettant de lever la malédiction avant qu'il ne soit trop tard. Réunissez un instrument, un poil" .
+                " d'animal et une statue. Une fois réunis, le rituel pour lever la malédiction pourra se faire."
             )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
             ->setReward('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
             ->setDuration(60);
 
+        $course2 = new Course();
+        $course2->setTitle('La carte au trésor')
+            ->setDescription(
+                "Il y a peu, un historien est venu déposer au musée un objet entouré de mystères : une " .
+                "carte au trésor. Malgré tous ses efforts, il n’a jamais pu en percer les secrets. Zarafa a du flair," .
+                " et est convaincue que cette carte dissimule des richesses inestimables, encore jamais découvertes. " .
+                "Mais seule, elle sait qu'elle ne pourra pas y parvenir. Visiteur, accepterez-vous de joindre vos " .
+                "forces à celles de Zarafa pour élucider les mystères de cette carte et partir à la découverte de " .
+                "ses trésors cachés ?"
+            )
+            ->setDifficulty(DifficultyEnum::MEDIUM)
+            ->setThumbnail("https://dbgjqsyfbgqboyomqfjr.supabase.co/stor" .
+                "age/v1/object/public/Musee/treasure_map.webp")
+            ->setReward('https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/stone3-1.webp')
+            ->setDuration(90);
+
         $manager->persist($course);
+        $manager->persist($course2);
 
         $rooms = [];
 
@@ -59,6 +76,22 @@ class AppFixtures extends Fixture
                 'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/2etage" .
                     "/r23.webp",
             ],
+            [
+                'id' => 4,
+                'floor' => 3,
+                'name' => 'Salle de l\'ethnologie océanienne',
+                'code' => '12345',
+                'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/3etage/" .
+                    "r25.webp",
+            ],
+            [
+                'id' => 5,
+                'floor' => -1,
+                'name' => 'Salle des pierres précieuses',
+                'code' => '12345',
+                'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/3etage/" .
+                    "r6.webp",
+            ],
         ];
 
         foreach ($roomsData as $roomData) {
@@ -71,9 +104,321 @@ class AppFixtures extends Fixture
             $rooms[$roomData['id']] = $room;
         }
 
+        $stepsData2 = [
+            [
+                'title' => 'Quel masque ne correspond pas à l\'une des 4 descriptions ?',
+                'room' => 4,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::AMONGUS,
+                'story' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Merci de me prêter ton aide, Visiteur !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'La carte semble nous amener dans cette salle.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Il y a un nombre impressionnant de masques !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "La carte indique également ceci : \"Le chemin vers le trésor se cache derrière " .
+                        "la fausse descpription.\"",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Je ne sais pas ce que cela peut vouloir dire, mais 4 phrases suivent ce message :',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "A : Je suis peint en rouge éclatant, avec des yeux ronds blancs cerclés de noir," .
+                        " un visage expressif, et je porte un bandeau décoré de motifs bleus et dorés.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "B : Je suis peint en blanc, avec des traits noirs et jaunes subtils sur les joues " .
+                        "et le front, et je porte sur ma tête pas moins de 12 bosses variant entre 2 apparences.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "C : Je suis peint en jaune, mes yeux ont une couleur rappelant celle du ciel,",
+                        " tandis que mon couvre-chef rappelle un métier de la mer.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "D : Je suis peint en bleu et blanc avec des rayures horionzontales sur le visage, " .
+                        "et j'ai, sur la tête, des points orientées vers la même direction.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Je dois bien avouer que je suis perdue... Peux-tu m'aider Visiteur ?",
+                    ],
+                ],
+                'activity' => [
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/386746/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/386728/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/386714/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/386729/image1000.jpeg"],
+                    ],
+                    'hints' => [
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
+                            "rafa_icon.webp",
+                            'text' => 'Je n\'arrive pas à retrouver la description D parmi les masques présentés...'],
+                    ],
+                    'solution' => 2,
+                    'question' => 'Quel masque ne correspond à aucune description ?',
+                ],
+                'success' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Bravo, tu as raison !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Ce masque était semblable à la description D, mais des failles s\'y trouvaient !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Regarde ! On dirait que la carte s'est mise à jour !",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Nous devons apparemment nous rendre dans la salle 9 à l'étage 1. Allons-y !",
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Non, ce masque a bien une description qui lui correspond... Réessaie !',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Patte sur le trésor',
+                'room' => 2,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
+                'story' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Nous voilà au prochain lieu indiqué par la carte : la salle de zoologie !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Cette fois-ci, il est écrit : ",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "\"Quelconque être vivant ne peut mettre sa patte sur le trésor. Celle-ci doit être" .
+                            " apte à y accéder.\"",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Il semblerait qu'une image d'une patte soit également inscrite.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Elle doit appartenir à un animal dans cette salle, trouvons-le ! ",
+                    ],
+                ],
+                'activity' => [
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/crocrodile_nain.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/henope.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pu" .
+                            "blic/Musee/IMG_20241218_163453.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/varan_aquatique.webp"],
+                    ],
+                    'hints' => [
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
+                            "rafa_icon.webp",
+                            'text' => 'La patte indiquée semble appartenir à un animal qui n\'est pas très grand...'],
+                    ],
+                    'solution' => 2,
+                    'question' => 'À quel animal appartient cette patte ?',
+                ],
+                'success' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Effectivement tu as raison, cette parte appartient bien au caméléon verruqueux !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'OH ?! La carte semble afficher quelque chose :',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "\"Seul un individu capable de trouver la patte d'un être qui se camoufle saura" .
+                        " débusquer le trésor caché.\"",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Je ne sais pas vraiment ce que cela veut dire, mais nous avons trouvé la bonne " .
+                        "réponse !",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Notre dernière destination semble être le sous-sol du musée, allons-y !",
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Non, la patte ne correspond pas à cet animal... Réessayons !',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Quel est le trésor ?',
+                'room' => 3,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::AMONGUS,
+                'story' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'WAOUH ! Cette salle est vraiment très belle !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Tu vois toutes ces pierres exposées partout ?! C\'est magnifique !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Alors, que nous indique la carte... Tiens, c\'est étrange, il est écrit :',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "\"Efflorisse dravonne polarcite zynex carboline euphalme malachite mamelonnée" .
+                            " trombolyse quinaria flovide roscandar lumélion orphage dexaphor vimbrune asylone" .
+                            " miracène quorixe biflorate caelire harmogene sulfornide nivarium xyphor pernovique" .
+                            " jubalique verbolyse gliforne caprylique trovoline.\"",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Qu'est ce que cela peut bien vouloir signifier...?",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Cette énigme semble plus difficile... Visiteur, je compte sur toi. C'est notre " .
+                        "dernier obstacle avant le trésor, tu es capable de le surmonter, j'en suis sûre !",
+                    ],
+                ],
+                'activity' => [
+                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/statue_c" .
+                        "ache.webp",
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/440315/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/417911/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/440298/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/449978/image1000.jpeg"],
+                    ],
+                    'hints' => [
+                        [
+                            'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
+                                "/zarafa_icon.webp",
+                            'text' => "Certains mots ne veulent rien dire j'en suis sûre, mais j'ai l'impression que" .
+                                "2 d'entre eux sont pourtant présents dans cette salle..."
+                        ],
+                    ],
+                    'solution' => 3,
+                    'question' => "Visiteur, résolvez l'énigme finale de la carte au trésor.",
+                ],
+                'success' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Mais oui bien sûr, tu as raison Visiteur, c\'est la solution !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'C\'est une pierre de malachite mamelonnée, elle est si belle !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "On dirait que la carte affiche un dernier message :" ,
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "\"Félications visiteurs. Vous avez mis la main sur le trésor de cette carte." .
+                            "En réalité, toutes les pierres présentes ici font parties de mon trésor, et elles sont" .
+                        " en sécurité ici, j'en suis convaincu. Je vous pris de bien vouloir admirer la beauté" .
+                        " de ce à quoi j'ai consacré ma vie, et je vous demande, comme j'ai pu le faire durant ma vie" .
+                        ", de prendre soin de ces dernières. Ulysses Wilhelm, 1856",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Je vois, cette carte a donc été fabriquée par un historien d'il y a plusieurs" .
+                         " siècles maintenant. Il souhaitait mettre son trésor loin de mains dangereuses...",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Je te remercie Visiteur. Grâce à toi, le mystère de la carte au trésor est résolue" .
+                        ". Nous devrions malgré tout laisser son trésor ici, et laisser tout le monde profiter " .
+                        "de sa beauté !",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "À très vite !",
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Non, ce n\'est pas ça, essayons autre chose...',
+                    ],
+                ],
+            ],
+        ];
+
         $stepsData = [
             [
-                'title' => 'Retrouve l\animal avec la plume',
+                'title' => 'Retrouve l\'animal avec la plume',
                 'room' => 2,
                 'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
                 'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
@@ -86,7 +431,12 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Je ne sais malheuresement pas à quoi ressemble l\'animal que nous recherchons...',
+                        'text' => 'Il y a vraiment beaucoup d\'animaux ici !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Malheuresement, je ne sais pas à quoi ressemble l\'animal que nous recherchons...',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -116,7 +466,7 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/zarafa_icon.webp",
-                            'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il peut'
+                            'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il le peut !'
                         ],
                     ],
                     'solution' => 2,
@@ -131,7 +481,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Cette plume appartient effectivement à une chouette hulotte',
+                        'text' => 'Cette plume appartient effectivement à une chouette hulotte.',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -142,15 +492,19 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "Maintenant, allons chercher notre instrument ! Rendez-vous dans la salle des arts" .
-                            " musicaux (salle 24) à l'étage 2",
+                        'text' => "Maintenant, allons chercher l'instrument dont nous avons besoin ! ",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "Rendez-vous dans la salle des arts musicaux située à l'étage 2, salle 24 !",
                     ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
+                        'text' => 'Non, ce n\'est pas cet animal on dirait... Réessaie !',
                     ],
                 ],
             ],
@@ -191,7 +545,7 @@ class AppFixtures extends Fixture
                     'hints' => [
                         ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
                             "rafa_icon.webp",
-                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant.'],
+                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant...'],
                     ],
                     'solution' => 1,
                     'question' => 'Quel instrument n\'est pas présent dans la salle ?',
@@ -224,7 +578,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
+                        'text' => 'Non, cet instrument est bien présent dans la salle, essayons un autre !',
                     ],
                 ],
             ],
@@ -237,7 +591,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Le dernier élèment dont nous avons besoin se situe dans cette salle.',
+                        'text' => 'Le dernier élément dont nous avons besoin se situe dans cette salle.',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -267,7 +621,8 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/zarafa_icon.webp",
-                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant.'
+                            'text' => "En regardant la taille de l'ombre de plus près, c'est une statue grande et " .
+                            "large.",
                         ],
                     ],
                     'solution' => 0,
@@ -287,20 +642,25 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "Nous pouvons enfin nous rendre devant le masque gélédé pour lever la malédiction " .
-                            "!",
+                        'text' => "Grâce à toi, la malédiction du masque pourra être levée pour de bon ! " ,
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Allons au dernier étage, dans la salle des masques !',
+                        'text' => 'Merci à toi Visiteur, le musée peut désormais continuer à vivre sereinement !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "N'hésite pas à venir au troisième étage pour admirer désormais l'inoffensif " .
+                            "masque Gélédé",
                     ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mince, tu t\'es trompé, réessaie',
+                        'text' => 'On ne dirait pas que cette statue correspond à l\'ombre présentée...',
                     ],
                 ],
             ],
@@ -319,6 +679,21 @@ class AppFixtures extends Fixture
                 ->setRoom($rooms[$stepData['room']]);
 
             $manager->persist($step);
+        }
+
+        foreach ($stepsData2 as $stepData2) {
+            $step2 = new Step();
+            $step2->setTitle($stepData2['title'])
+                ->setReward($stepData2['reward'])
+                ->setType($stepData2['type'])
+                ->setStory($stepData2['story'])
+                ->setActivity($stepData2['activity'])
+                ->setSuccess($stepData2['success'])
+                ->setFailure($stepData2['failure'])
+                ->setCourse($course2)
+                ->setRoom($rooms[$stepData2['room']]);
+
+            $manager->persist($step2);
         }
 
         $manager->flush();
