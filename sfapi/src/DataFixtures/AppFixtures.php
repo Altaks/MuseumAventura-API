@@ -23,7 +23,8 @@ class AppFixtures extends Fixture
                 "Zarafa a besoin de vous pour lever la malédiction du masque Gélédé. Des monstres attirés" .
                 " par le masque viennent voler les œuvres du musée. Parcourez le musée à la recherche des objets " .
                 "permettant de lever la malédiction avant qu'il ne soit trop tard. Réunissez un instrument, un poil" .
-                " d'animal et une statue. Une fois réunis, le rituel pour lever la malédiction pourra se faire."
+                " d'animal et une statue. Une fois les éléments réunis, le rituel pour faire cesser la malédiction"   .
+                " à tout jamais pourra être accompli."
             )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
@@ -34,7 +35,7 @@ class AppFixtures extends Fixture
         $course2->setTitle('La carte au trésor')
             ->setDescription(
                 "Il y a peu, un historien est venu déposer au musée un objet entouré de mystères : une " .
-                "carte au trésor. Malgré tous ses efforts, il n’a jamais pu en percer les secrets. Zarafa a du flair," .
+                "carte au trésor. Malgré tous ses efforts, il n`a jamais pu en percer les secrets. Zarafa a du flair," .
                 " et est convaincue que cette carte dissimule des richesses inestimables, encore jamais découvertes. " .
                 "Mais seule, elle sait qu'elle ne pourra pas y parvenir. Visiteur, accepterez-vous de joindre vos " .
                 "forces à celles de Zarafa pour élucider les mystères de cette carte et partir à la découverte de " .
@@ -119,18 +120,18 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'La carte semble nous amener dans cette salle.',
+                        'text' => 'Cette mystèrieuse carte semble nous amener dans cette salle.',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Il y a un nombre impressionnant de masques !',
+                        'text' => 'Il y a un très grand nombre de masques !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
                         'text' => "La carte indique également ceci : \"Le chemin vers le trésor se cache derrière " .
-                        "la fausse descpription.\"",
+                        "la fausse description.\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -140,26 +141,27 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "A : Je suis peint en rouge éclatant, avec des yeux ronds blancs cerclés de noir," .
-                        " un visage expressif, et je porte un bandeau décoré de motifs bleus et dorés.",
+                        'text' => "\"A : Je suis peint en rouge éclatant, avec des yeux ronds blancs cerclés de noir," .
+                        " un visage expressif, et je porte un bandeau décoré de motifs bleus et dorés.\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "B : Je suis peint en blanc, avec des traits noirs et jaunes subtils sur les joues " .
-                        "et le front, et je porte sur ma tête pas moins de 12 bosses variant entre 2 apparences.",
+                        'text' => "\"B : Je suis peint en blanc, avec des traits noirs et jaunes subtils sur les " .
+                        "joues et le front, et je porte sur ma tête pas moins de 12 bosses variant " .
+                            "entre 2 apparences.\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "C : Je suis peint en jaune, mes yeux ont une couleur rappelant celle du ciel,",
-                        " tandis que mon couvre-chef rappelle un métier de la mer.",
+                        'text' => "\"C : Je suis peint en jaune, mes yeux ont une couleur rappelant celle du ciel," .
+                        " tandis que mon couvre-chef rappelle un métier de la mer.\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "D : Je suis peint en bleu et blanc avec des rayures horizontales sur le visage, " .
-                        "et j'ai, sur la tête, des points orientées vers la même direction.",
+                        'text' => "\"D : Je suis peint en bleu et blanc avec des rayures horizontales sur le visage, " .
+                        "et j'ai, sur la tête, des pointes orientées vers la même direction.\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -182,6 +184,7 @@ class AppFixtures extends Fixture
                     'solution' => 2,
                     'question' => 'Quel masque ne correspond à aucune description ?',
                 ],
+                'given' => 'J\'ai trouvé ! C\'est le masque avec les pointes sur la tête !',
                 'success' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -231,8 +234,8 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "\"Quelconque être vivant ne peut mettre sa patte sur le trésor. Celle-ci doit être" .
-                            " apte à y accéder.\"",
+                        'text' => "\"Quelconque être vivant ne peut mettre sa patte sur le trésor. Cette dernière" .
+                            " doit être apte à y accéder.\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -245,6 +248,7 @@ class AppFixtures extends Fixture
                         'text' => "Elle doit appartenir à un animal dans cette salle, trouvons-le ! ",
                     ],
                 ],
+                'given' => 'J\'ai trouvé ! C\'est la patte du caméléon verruqueux !',
                 'activity' => [
                     'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/bras_ca" .
                             "meleon.webp",
@@ -267,7 +271,6 @@ class AppFixtures extends Fixture
                     'solution' => 2,
                     'question' => 'À quel animal appartient cette patte ?',
                 ],
-                //given
                 'success' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -346,6 +349,7 @@ class AppFixtures extends Fixture
                         "dernier obstacle avant le trésor, tu es capable de le surmonter, j'en suis sûre !",
                     ],
                 ],
+                'given' => 'J\'ai la solution ! La pierre verte est la réponse à l\'énigme !',
                 'activity' => [
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/440315/image1000.jpeg"],
@@ -358,7 +362,7 @@ class AppFixtures extends Fixture
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/zarafa_icon.webp",
                             'text' => "Certains mots ne veulent rien dire j'en suis sûre, mais j'ai l'impression que" .
-                                "2 d'entre eux sont pourtant présents dans cette salle..."
+                                " 2 d'entre eux sont pourtant présents dans cette salle..."
                         ],
                     ],
                     'solution' => 3,
@@ -368,7 +372,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Mais oui bien sûr, tu as raison Visiteur, c\'est la solution !',
+                        'text' => 'Mais oui, bien sûr, tu as raison Visiteur, c\'est la solution !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -399,7 +403,7 @@ class AppFixtures extends Fixture
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
                         'text' => "Je te remercie Visiteur. Grâce à toi, le mystère de la carte au trésor est résolu" .
-                        ". Nous devrions malgré tout laisser son trésor ici, et laisser tout le monde profiter " .
+                        ". Nous devrions malgré tout laisser son trésor ici afin de laisser tout le monde profiter " .
                         "de sa beauté !",
                     ],
                     [
@@ -428,7 +432,22 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Nous voilà dans la galerie de zoologie !',
+                        'text' => 'Catastrophe ! La malédiction du masque Gélédé est de retour !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Visiteur, je remercie ta présence ! Nous allons y mettre fin ensemble !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Pour cela, nous devons réunir différents éléments présents dans le mmusée.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => 'Pour commencer, nous voici dans la galerie de zoologie !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -438,7 +457,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Malheuresement, je ne sais pas à quoi ressemble l\'animal que nous recherchons...',
+                        'text' => 'Malheureusement, je ne sais pas à quoi ressemble l\'animal que nous recherchons...',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -451,6 +470,7 @@ class AppFixtures extends Fixture
                         'text' => 'Sauras-tu retrouver à quel animal il appartient ?',
                     ],
                 ],
+                'given' => 'J\'ai trouvé l\'animal que nous cherchons !',
                 'activity' => [
                     'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/plume_hi" .
                         "bou_hulotte.webp",
@@ -483,7 +503,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'Cette plume appartient effectivement à une chouette hulotte.',
+                        'text' => 'Cette plume appartient à une chouette hulotte.',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -525,7 +545,7 @@ class AppFixtures extends Fixture
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
                         'text' => "Pourtant, l'un d'entre eux est un leurre, et n'est qu'une illusion lancée par" .
-                            " le masque gélédé !",
+                            " le masque Gélédé !",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -533,6 +553,7 @@ class AppFixtures extends Fixture
                         'text' => 'Mais lequel peut-il être bien être ?',
                     ],
                 ],
+                'given' => 'Regarde, c\'est celui-là ! Cet instrument n\'a rien à faire ici.',
                 'activity' => [
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
@@ -561,7 +582,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'C\'est un piège du masque gélédé !',
+                        'text' => 'C\'est un piège du masque Gélédé !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -603,9 +624,15 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
+                        'text' => 'Malheureusement, le masque a essayé de la dissimuler parmi les autres...',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
                         'text' => 'Pourras-tu retrouver la statue à partir de sa forme ?',
                     ],
                 ],
+                'given' => 'J\'ai trouvé ! C\'est la seule possible !',
                 'activity' => [
                     'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/statue_c" .
                         "ache.webp",
@@ -623,12 +650,12 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/zarafa_icon.webp",
-                            'text' => "En regardant la taille de l'ombre de plus près, c'est une statue grande et " .
+                            'text' => "En regardant la forme de plus près, c'est une statue grande et " .
                             "large.",
                         ],
                     ],
                     'solution' => 0,
-                    'question' => "À quelle statue appartient cette ombre ?",
+                    'question' => "À quelle statue appartient cette forme ?",
                 ],
                 'success' => [
                     [
@@ -644,7 +671,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => "Grâce à toi, la malédiction du masque pourra être levée pour de bon ! " ,
+                        'text' => "Grâce à toi, la malédiction du masque peut être levée pour de bon ! " ,
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
@@ -655,14 +682,19 @@ class AppFixtures extends Fixture
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
                         'text' => "N'hésite pas à venir au troisième étage pour admirer désormais l'inoffensif " .
-                            "masque Gélédé",
+                            "masque Gélédé ! ;)",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
+                            "afa_icon.webp",
+                        'text' => "À bientôt !",
                     ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/zar" .
                             "afa_icon.webp",
-                        'text' => 'On ne dirait pas que cette statue correspond à l\'ombre présentée...',
+                        'text' => 'On ne dirait pas que cette statue correspond à la forme présentée...',
                     ],
                 ],
             ],
