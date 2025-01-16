@@ -442,7 +442,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                            "afa_head.webp",
-                        'text' => 'Pour cela, nous devons réunir différents éléments présents dans le mmusée.',
+                        'text' => 'Pour cela, nous devons réunir différents éléments présents dans le musée.',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
