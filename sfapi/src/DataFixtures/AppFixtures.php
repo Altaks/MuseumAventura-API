@@ -20,11 +20,11 @@ class AppFixtures extends Fixture
         $course = new Course();
         $course->setTitle('La malédiction du masque Gélédé')
             ->setDescription(
-                "Zarafa a besoin de vous pour lever la malédiction du masque Gélédé. Des monstres attirés" .
-                " par le masque viennent voler les œuvres du musée. Parcourez le musée à la recherche des objets " .
-                "permettant de lever la malédiction avant qu'il ne soit trop tard. Réunissez un instrument, un poil" .
+                "Le musée a besoin de nous pour lever la malédiction du masque Gélédé. Des monstres attirés" .
+                " par le masque viennent voler les œuvres du musée. Partons à la recherche des objets " .
+                "permettant de lever la malédiction avant qu'il ne soit trop tard. Réunissons un instrument, un poil" .
                 " d'animal et une statue. Une fois les éléments réunis, le rituel pour faire cesser la malédiction"   .
-                " à tout jamais pourra être accompli."
+                " à tout jamais pourra être accompli !"
             )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://www.alienor.org/media/synchro/391463/image1000.jpeg')
@@ -35,10 +35,10 @@ class AppFixtures extends Fixture
         $course2->setTitle('La carte au trésor')
             ->setDescription(
                 "Il y a peu, un historien est venu déposer au musée un objet entouré de mystères : une " .
-                "carte au trésor. Malgré tous ses efforts, il n`a jamais pu en percer les secrets. Zarafa a du flair," .
-                " et est convaincue que cette carte dissimule des richesses inestimables, encore jamais découvertes. " .
-                "Mais seule, elle sait qu'elle ne pourra pas y parvenir. Visiteur, accepterez-vous de joindre vos " .
-                "forces à celles de Zarafa pour élucider les mystères de cette carte et partir à la découverte de " .
+                "carte au trésor. Malgré tous ses efforts, il n`a jamais pu en percer les secrets. Pourtant, je" .
+                " suis convaincue que cette carte dissimule des richesses inestimables, encore jamais découvertes. " .
+                "Mais seule, je suis incapable de révéler ses secrets. Visiteur, accepterez-vous de joindre vos " .
+                "forces aux miennes pour élucider les mystères de cette carte et partir à la découverte de " .
                 "ses trésors cachés ?"
             )
             ->setDifficulty(DifficultyEnum::MEDIUM)
