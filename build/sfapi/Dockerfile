@@ -3,7 +3,7 @@ FROM forge-registry.iut-larochelle.fr/php-fpm-composer/iutlr-info-php8.2-fpm-com
 # Login to container as root user
 USER root
 
-# Symfony dev environement 
+# Symfony dev environement
 ENV APP_ENV=dev
 
 # Copy php default configuration
