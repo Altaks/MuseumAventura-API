@@ -177,8 +177,8 @@ class AppFixtures extends Fixture
                         ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/386729/image1000.jpeg"],
                     ],
                     'hints' => [
-                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
-                            "rafa_icon.webp",
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
                             'text' => 'Je n\'arrive pas à retrouver la description D parmi les masques présentés...'],
                     ],
                     'solution' => 2,
@@ -264,8 +264,8 @@ class AppFixtures extends Fixture
                             "lic/Musee/varan_aquatique.webp"],
                     ],
                     'hints' => [
-                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
-                            "rafa_icon.webp",
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
                             'text' => 'La patte indiquée semble appartenir à un animal qui n\'est pas très grand...'],
                     ],
                     'solution' => 2,
@@ -360,7 +360,7 @@ class AppFixtures extends Fixture
                     'hints' => [
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
-                                "/zarafa_icon.webp",
+                                "/Zarafa_head.webp",
                             'text' => "Certains mots ne veulent rien dire j'en suis sûre, mais j'ai l'impression que" .
                                 " 2 d'entre eux sont pourtant présents dans cette salle..."
                         ],
@@ -487,7 +487,7 @@ class AppFixtures extends Fixture
                     'hints' => [
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
-                                "/zarafa_icon.webp",
+                                "/Zarafa_head.webp",
                             'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il le peut !'
                         ],
                     ],
@@ -566,8 +566,8 @@ class AppFixtures extends Fixture
                             "lic/Musee/20241218_165950.webp"],
                     ],
                     'hints' => [
-                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/za" .
-                            "rafa_icon.webp",
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
                             'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant...'],
                     ],
                     'solution' => 1,
@@ -649,7 +649,7 @@ class AppFixtures extends Fixture
                     'hints' => [
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
-                                "/zarafa_icon.webp",
+                                "/Zarafa_head.webp",
                             'text' => "En regardant la forme de plus près, c'est une statue grande et " .
                             "large.",
                         ],
