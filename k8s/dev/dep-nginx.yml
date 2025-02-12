@@ -19,8 +19,8 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - mountPath: /app/sfapi/public
-              name: sfapi-public
+            - name: sfapi-public
+              mountPath: /app/sfapi/public
       volumes:
         - name: sfapi-public
           emptyDir: { }

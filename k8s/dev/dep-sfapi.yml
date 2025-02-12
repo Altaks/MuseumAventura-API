@@ -29,13 +29,14 @@ spec:
                   - "-c"
                   - >
                     cd /app/sfapi && composer install -n &&
+                    php bin/console assets:install public &&
                     mkdir migrations &&
                     php bin/console make:migration -n &&
                     php bin/console doctrine:migrations:migrate -n &&
                     php bin/console d:f:l -q
           volumeMounts:
-            - mountPath: /app/sfapi/public
-              name: sfapi-public
+            - name: sfapi-public
+              mountPath: /app/sfapi/public
       volumes:
         - name: sfapi-public
           emptyDir: { }
