@@ -18,12 +18,6 @@ spec:
           image: $CI_REGISTRY/$CI_PROJET/nginx-dev
           ports:
             - containerPort: 80
-          volumeMounts:
-            - name: sfapi-public
-              mountPath: /app/sfapi/public
-      volumes:
-        - name: sfapi-public
-          emptyDir: { }
       imagePullSecrets:
         - name: gitlab-auth
 
