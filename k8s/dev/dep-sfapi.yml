@@ -29,7 +29,6 @@ spec:
                   - "-c"
                   - >
                     cd /app/sfapi && composer install -n &&
-                    php bin/console assets:install public &&
                     mkdir migrations &&
                     php bin/console make:migration -n &&
                     php bin/console doctrine:migrations:migrate -n &&
