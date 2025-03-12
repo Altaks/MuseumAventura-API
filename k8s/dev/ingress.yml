@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: ingress-sae5-x21-dev
   namespace: ns-sae5-x21
+  annotations:
+    konghq.com/strip-path: "true"
 spec:
   ingressClassName: kong
   rules:
@@ -10,7 +12,7 @@ spec:
       http:
         paths:
           - path: /
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: svc-nginx-sae5-x21-dev
