@@ -4,7 +4,7 @@ metadata:
   name: ingress-sae5-x21-dev
   namespace: ns-sae5-x21
 spec:
-  ingressClassName: kong
+  ingressClassName: nginx
   rules:
     - host: sae5-x21-api-dev.labs.iut-larochelle.fr
       http:
