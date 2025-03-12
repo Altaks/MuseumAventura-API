@@ -3,18 +3,16 @@ kind: Ingress
 metadata:
   name: ingress-sae5-x21-dev
   namespace: ns-sae5-x21
-  annotations:
-    konghq.com/strip-path: "true"
 spec:
-  ingressClassName: kong
+  ingressClassName: zesgfyugfefyefguiegz
   rules:
     - host: sae5-x21-api-dev.labs.iut-larochelle.fr
       http:
         paths:
           - path: /
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
-                name: svc-sfapi-sae5-x21-dev
+                name: svc-nginx-sae5-x21-dev
                 port:
                   number: 80
