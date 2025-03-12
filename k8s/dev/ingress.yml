@@ -15,6 +15,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: svc-nginx-sae5-x21-dev
+                name: svc-sfapi-sae5-x21-dev
                 port:
                   number: 80
