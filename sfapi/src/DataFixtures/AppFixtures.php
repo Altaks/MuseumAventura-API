@@ -332,10 +332,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                            "afa_head.webp",
-                        'text' => "\"Efflorisse dravonne polarcite zynex carboline euphalme malachite mamelonnée" .
-                            " trombolyse quinaria flovide roscandar lumélion orphage dexaphor vimbrune asylone" .
-                            " miracène quorixe biflorate caelire harmogene sulfornide nivarium xyphor pernovique" .
-                            " jubalique verbolyse gliforne caprylique trovoline.\"",
+                        'text' => "\"Trésor -- dlj,fznv -- étudiant -- jkfnduier -- calcite -- Angoulins .\"",
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
@@ -349,20 +346,20 @@ class AppFixtures extends Fixture
                         "dernier obstacle avant le trésor, tu es capable de le surmonter, j'en suis sûre !",
                     ],
                 ],
-                'given' => 'J\'ai la solution ! La pierre verte est la réponse à l\'énigme !',
+                'given' => 'J\'ai la solution ! Ce magnifique spath d\'Aunis est la réponse à l\'énigme !',
                 'activity' => [
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/440315/image1000.jpeg"],
                         ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/417911/image1000.jpeg"],
-                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/440298/image1000.jpeg"],
-                        ['type' => 'IMAGE', 'src' => "https://www.alienor.org/media/synchro/449978/image1000.jpeg"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/20250312_103346.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/20250312_103646.webp"],
                     ],
                     'hints' => [
                         [
                             'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
                                 "/Zarafa_head.webp",
                             'text' => "Certains mots ne veulent rien dire j'en suis sûre, mais j'ai l'impression que" .
-                                " 2 d'entre eux sont pourtant présents dans cette salle..."
+                                " quelques uns d'entre eux sont pourtant présents dans cette salle..."
                         ],
                     ],
                     'solution' => 3,
@@ -377,7 +374,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                            "afa_head.webp",
-                        'text' => 'C\'est une pierre de malachite mamelonnée, elle est si belle !',
+                        'text' => 'C\'est un spath qui provient de la région d\'Aunis, elle est si belle !',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
