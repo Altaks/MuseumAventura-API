@@ -7,7 +7,7 @@ COPY ./build/nginx/dev/default.conf /etc/nginx/conf.d/default.conf
 RUN mkdir /app
 
 # Copy resources
-COPY ./resources/dev/ /usr/share/nginx/html/resources/
+COPY ./resources/ /usr/share/nginx/html/resources/
 
 RUN chown -R www-data:www-data /usr/share/nginx/html/
 RUN chmod -R 755 /usr/share/nginx/html/
