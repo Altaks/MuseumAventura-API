@@ -50,6 +50,7 @@ build-dev:
     - docker push $CI_REGISTRY/$CI_PROJET/nginx-dev
   only:
     - dev
+    - task/new_course_3
 
 # Étape de lint pour PHP
 lint:
@@ -139,3 +140,4 @@ deploy-dev:
     - cat k8s/dev/ingress.yml | $KUBECTL apply -f -
   only:
     - dev
+    - task/new_course_3
