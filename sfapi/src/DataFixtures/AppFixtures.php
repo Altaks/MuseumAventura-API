@@ -47,8 +47,26 @@ class AppFixtures extends Fixture
             ->setReward('https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/stone3-1.webp')
             ->setDuration(90);
 
+
+        $course3 = new Course();
+        $course3->setTitle('Entre terre et mer :water_wave:')
+            ->setDescription(
+                "Après toutes ces années à rechercher des trésors, je pense avoir besoin d'une pause... " .
+                "pour voyager, bien sûr ! Mais cette fois-ci, je souhaite partir pour le voyage le plus long que je" .
+                " n'ai jamais fait de toute ma vie : rencontrer des peuples, explorer les océans, affronter les " .
+                "tempêtes... je veux découvrir tout ce que ce monde peut offrir ! Mais seule, j'ai peur de m'ennuyer" .
+                " sur le trajet... Alors, voyageur, es-tu tenté par l'expérience ? "
+            )
+            ->setDifficulty(DifficultyEnum::MEDIUM)
+            ->setThumbnail("https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/terre_et_mer" .
+                ".webp")
+            ->setReward('https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/20250312_105223.webp')
+            ->setDuration(90);
+
+
         $manager->persist($course);
         $manager->persist($course2);
+        $manager->persist($course3);
 
         $rooms = [];
 
@@ -93,7 +111,22 @@ class AppFixtures extends Fixture
                 'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/room/room/s" .
                     "ous-sol/r6.webp",
             ],
+            [
+                'id' => 6,
+                'floor' => 0,
+                'name' => 'Les marais littoraux',
+                'code' => '12345',
+                'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/room/room/rdc/r2.webp",
+            ],
+            [
+                'id' => 7,
+                'floor' => 1,
+                'name' => 'Faune de la côte aux abysses',
+                'code' => '12345',
+                'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/room/room/1etage/r10.webp",
+            ],
         ];
+
 
         foreach ($roomsData as $roomData) {
             $room = new Room();
@@ -699,6 +732,298 @@ class AppFixtures extends Fixture
             ],
         ];
 
+        $stepsData3 = [
+            [
+                'title' => 'Le peuple masqué',
+                'room' => 3,
+                'reward' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/20250312_105223.webp',
+                'type' => PuzzleTypeEnum::AMONGUS,
+                'story' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'C\'est parti pour le début de **notre aventure**, Visiteur !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Je suis si impatiente de voir ce que l\'on va pouvoir découvrir !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Pourtant, commencer par traverser un désert, je ne sais pas si ' .
+                            'c\'était une bonne idée...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'OH ?! Regarde, il y a différents peuples au loin !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Comment savoir lequel d\'entre eux est le plus amical... ',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Je crois avoir entendu que le peuple le plus amical de ce désert a du mal à se ' .
+                            'déplacer',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Lequel correspond à cette description ?',
+                    ],
+                ],
+                'given' => 'C\'est ce peuple, regarde !',
+                'activity' => [
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/i" .
+                            "mages/20250312_110209.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/i" .
+                            "mages/peuple2.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/i" .
+                            "mages/peuple3.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_110200.webp"],
+                    ],
+                    'hints' => [
+                        [
+                            'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                                "head.webp",
+                            'text' => 'Je crois qu\'ils utilisent des cannes pour mieux se déplacer !'
+                        ],
+                    ],
+                    'solution' => 3,
+                    'question' => "À quel peuple correspond la description de Zarafa ?",
+                ],
+                'success' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Oui tu as raison, c\'est ce peuple ! Je vais aller voir si ils peuvent nous ' .
+                            'donner quelques ressources.',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => '...mhmh...d\'accord je vois...oui, merci à vous !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Malhreusement, ils n\'ont aucune ressource pour nous... En revanche !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Il semblerait que pour traverser ce désert, nous aurons besoin d\'un masque de ' .
+                            'protection pour nous garantir notre sécurité.',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Allons-y, je vais te montrer le chemin à suivre ! ',
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'HOLOLOLO MAIS T\'ES TROP NUL EN FAIT C\'EST OUF, SKILL ISSUE DE MALADE',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Bénédiction du masque',
+                'room' => 6,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
+                'story' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => '... haaaaaa cette chaleur est vraiment désagrable...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Le sable est très chaud, ça me brûle les pattes, et... HIIIIIIIII',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'VISITEUUUUUR ! Regarde au sol, des animaux dangereux, il y en a tellement !!!',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Comment va t-on pouvoir faire... oh mais c\'est vrai, nous avons le masque !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Nous pouvons peut-être nous en servir pour nous protéger, mais comment...?',
+                    ],
+                ],
+                'given' => 'Je sais, ce masque nous protège de cet animal !',
+                'activity' => [
+                    'ref_image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/IMG_20250312" .
+                        "_114542.webp",
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_101033.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_101103.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_101049.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_101044.webp"],
+                    ],
+                    'hints' => [
+                        [
+                            'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                                "head.webp",
+                            'text' => "En regardant le masque de plus près, je crois qu'un animal est indiqué dessus.",
+                        ],
+                    ],
+                    'solution' => 3,
+                    'question' => "De quelle espèce le masque peut-il nous protéger ?",
+                ],
+                'success' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Essayons de passer à côté des reptiles avec le masque...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => '...ils nous ignoré. Ce masque nous a sauvé, merci au peuple que nous avons' .
+                            ' rencontré',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Qu'est ce qu'on s'amuse tous les deux, HIHIHIHIHI" ,
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Continuons notre aventure, Visiteur !" ,
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'AIEEEEEE !!! NON CE N\'EST PAS CETTE ESPÈCE !!!',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Le mulet doré',
+                'room' => 7,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::AMONGUS,
+                'story' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Cela fait combien de jours que nous marchons maintenant... 20 ? 25 ?',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Je n\'en peux plus, si seulement on pouvait découvrir quelque chose de nouveau...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Une minute, tu sens cette odeur salée...? Vite, allons voir !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Regarde, c\'est la mer ! Il y a tellement de poissons',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Dis, tu penses que l\'on pourrait un mulet doré ? J\'ai toujours voulu en voir un' .
+                            ' un jour.',
+                    ],
+                ],
+                'given' => 'Je crois en avoir vu un !',
+                'activity' => [
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_105112.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_105119.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_105139.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/im" .
+                            "ages/20250312_105142.webp"],
+                    ],
+                    'hints' => [
+                        [
+                            'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                                "head.webp",
+                            'text' => "En regardant le masque de plus près, je crois qu'un animal est indiqué dessus.",
+                        ],
+                    ],
+                    'solution' => 3,
+                    'question' => "Dans mes souvenirs, le mulet doré est un poisson assez grand !",
+                ],
+                'success' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'C\'est un mulet doré Visiteur, juste ici !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Je suis tellement heureuse, j\'ai toujours voulu en voir un, et voià que mon rêve' .
+                            ' se réalise !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Merci beaucoup Visiteur, tu es mon meilleur ami !" ,
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Oh ?! Mais c'est un bateau là-bas ! Faisons lui signe, il pourrait nous ramener au" .
+                            ' musée !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "C'est donc la fin de notre aventure, j'ai été très heureuse de partager cela avec " .
+                            'toi Visiteur, merci pour tout !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Tiens, tu as ramené ce poisson en souvenir ? Il est plutôt mignon hihi, cela nous" .
+                            'fera un souvenir ! A bientôt !',
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Non, ce n\'est pas un mulet doré...',
+                    ],
+                ],
+            ],
+        ];
+
         foreach ($stepsData as $stepData) {
             $step = new Step();
             $step->setTitle($stepData['title'])
@@ -728,6 +1053,22 @@ class AppFixtures extends Fixture
 
             $manager->persist($step2);
         }
+
+        foreach ($stepsData3 as $stepData3) {
+            $step3 = new Step();
+            $step3->setTitle($stepData3['title'])
+                ->setReward($stepData3['reward'])
+                ->setType($stepData3['type'])
+                ->setStory($stepData3['story'])
+                ->setActivity($stepData3['activity'])
+                ->setSuccess($stepData3['success'])
+                ->setFailure($stepData3['failure'])
+                ->setCourse($course3)
+                ->setRoom($rooms[$stepData3['room']]);
+
+            $manager->persist($step3);
+        }
+
 
         $manager->flush();
     }
