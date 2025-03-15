@@ -972,11 +972,11 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                                 "head.webp",
-                            'text' => "En regardant le masque de plus près, je crois qu'un animal est indiqué dessus.",
+                            'text' => "Dans mes souvenirs, le mulet doré est un poisson assez grand !",
                         ],
                     ],
                     'solution' => 3,
-                    'question' => "Dans mes souvenirs, le mulet doré est un poisson assez grand !",
+                    'question' => "Trouvez le mulet doré que Zarafa recherche !",
                 ],
                 'success' => [
                     [
