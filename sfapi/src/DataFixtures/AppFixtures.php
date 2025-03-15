@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
 
 
         $course3 = new Course();
-        $course3->setTitle('Entre terre et mer :water_wave:')
+        $course3->setTitle('Entre terre et mer :ocean:')
             ->setDescription(
                 "Après toutes ces années à rechercher des trésors, je pense avoir besoin d'une pause... " .
                 "pour voyager, bien sûr ! Mais cette fois-ci, je souhaite partir pour le voyage le plus long que je" .
