@@ -1,0 +1,14 @@
+_format_version: "3.0"
+services:
+  - name: sfapi
+    url: http://nginx:80/api
+    routes:
+      - name: sfapi-route
+        paths:
+          - /api
+  - name: assets
+    url: https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/20241218_160948.webp
+    routes:
+      - name: assets-route
+        paths:
+          - /assets
