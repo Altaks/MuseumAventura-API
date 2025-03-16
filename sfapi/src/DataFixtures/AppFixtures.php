@@ -55,7 +55,7 @@ class AppFixtures extends Fixture
                 "pour voyager, bien sûr ! Mais cette fois-ci, je souhaite partir pour le voyage le plus long que je" .
                 " n'ai jamais fait de toute ma vie : rencontrer des peuples, explorer les océans, affronter les " .
                 "tempêtes... je veux découvrir tout ce que ce monde peut offrir ! Mais seule, j'ai peur de m'ennuyer" .
-                " sur le trajet... Alors, voyageur, es-tu tenté par l'expérience ? "
+                " ... Alors, Visiteur, es-tu tenté par l'expérience ? "
             )
             ->setDifficulty(DifficultyEnum::MEDIUM)
             ->setThumbnail("https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/terre_et_mer" .
@@ -758,26 +758,21 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'OH ?! Regarde, il y a différents peuples au loin !',
+                        'text' => 'OH ?! Regarde, il y a **différents peuples** au loin !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Comment savoir lequel d\'entre eux est le plus amical... ',
+                        'text' => 'Mais comment savoir lequels d\'entre eux sont les plus amicaux... ',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Je crois avoir entendu que le peuple le plus amical de ce désert a du mal à se ' .
-                            'déplacer',
-                    ],
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Lequel correspond à cette description ?',
+                        'text' => 'Il me semble avoir entendu que le peuple le plus amical de ce désert a **des ' .
+                            'difficultés à se déplacer**',
                     ],
                 ],
-                'given' => 'C\'est ce peuple, regarde !',
+                'given' => 'Je pense avoir trouvé le peuple que l\'on recherche !',
                 'activity' => [
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/i" .
@@ -793,7 +788,8 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                                 "head.webp",
-                            'text' => 'Je crois qu\'ils utilisent des cannes pour mieux se déplacer !'
+                            'text' => 'Je crois que les habitants du peuple que l\'on recherche ' .
+                                'utilisent des cannes pour mieux se déplacer !'
                         ],
                     ],
                     'solution' => 3,
@@ -803,7 +799,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Oui tu as raison, c\'est ce peuple ! Je vais aller voir si ils peuvent nous ' .
+                        'text' => 'Oui, c\'est ce peuple ! Je vais aller voir si ils peuvent généreusement nous ' .
                             'donner quelques ressources.',
                     ],
                     [
@@ -814,25 +810,25 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Malhreusement, ils n\'ont aucune ressource pour nous... En revanche !',
+                        'text' => 'Malheuresement, ils n\'ont aucune ressource pour nous... En revanche !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Il semblerait que pour traverser ce désert, nous aurons besoin d\'un masque de ' .
-                            'protection pour nous garantir notre sécurité.',
+                        'text' => 'Il semblerait que pour traverser ce désert, nous aurons besoin **d\'un masque de ' .
+                            'protection** pour nous garantir notre sécurité.',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Allons-y, je vais te montrer le chemin à suivre ! ',
+                        'text' => 'Allons-y, je vais te montrer le chemin à suivre !',
                     ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                             "afa_head.webp",
-                        'text' => 'HOLOLOLO MAIS T\'ES TROP NUL EN FAIT C\'EST OUF, SKILL ISSUE DE MALADE',
+                        'text' => 'Non, ce peuple ne me semble pas très amical...',
                     ],
                 ],
             ],
@@ -845,12 +841,12 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => '... haaaaaa cette chaleur est vraiment désagrable...',
+                        'text' => '... haaaaaa cette chaleur est vraiment désagréable...',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Le sable est très chaud, ça me brûle les pattes, et... HIIIIIIIII',
+                        'text' => 'Le sable est très chaud, ça me brûle les pattes, et... **HIIIIIIIII**',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -860,7 +856,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Comment va t-on pouvoir faire... oh mais c\'est vrai, nous avons le masque !',
+                        'text' => 'Comment va t-on pouvoir faire... oh mais c\'est vrai, nous avons ce masque !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -886,11 +882,12 @@ class AppFixtures extends Fixture
                         [
                             'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                                 "head.webp",
-                            'text' => "En regardant le masque de plus près, je crois qu'un animal est indiqué dessus.",
+                            'text' => "En regardant le masque de plus près, je crois qu'un animal est représenté " .
+                                "dessus.",
                         ],
                     ],
                     'solution' => 3,
-                    'question' => "De quelle espèce le masque peut-il nous protéger ?",
+                    'question' => "De quelle espèce d'animal le masque peut-il vous protéger ?",
                 ],
                 'success' => [
                     [
@@ -901,8 +898,8 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => '...ils nous ignoré. Ce masque nous a sauvé, merci au peuple que nous avons' .
-                            ' rencontré',
+                        'text' => '...ils nous ont ignoré. **Ce masque nous a sauvé**, un grand merci' .
+                            ' au peuple que nous avons rencontré',
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
@@ -947,13 +944,13 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Regarde, c\'est la mer ! Il y a tellement de poissons',
+                        'text' => 'Regarde, c\'est la mer ! Il y a tellement de poissons !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Dis, tu penses que l\'on pourrait un mulet doré ? J\'ai toujours voulu en voir un' .
-                            ' un jour.',
+                        'text' => 'Dis, tu penses que l\'on pourrait trouver un mulet doré ? J\'ai toujours voulu' .
+                            ' en voir un, un jour.',
                     ],
                 ],
                 'given' => 'Je crois en avoir vu un !',
@@ -976,7 +973,7 @@ class AppFixtures extends Fixture
                         ],
                     ],
                     'solution' => 3,
-                    'question' => "Trouvez le mulet doré que Zarafa recherche !",
+                    'question' => "Trouvez le mulet doré que Zarafa recherche.",
                 ],
                 'success' => [
                     [
@@ -993,7 +990,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                             "afa_head.webp",
-                        'text' => "Merci beaucoup Visiteur, tu es mon meilleur ami !" ,
+                        'text' => "Merci beaucoup Visiteur, je suis si chanceuse de t'avoir rencontré !" ,
                     ],
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
@@ -1011,7 +1008,7 @@ class AppFixtures extends Fixture
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                             "afa_head.webp",
                         'text' => "Tiens, tu as ramené ce poisson en souvenir ? Il est plutôt mignon hihi, cela nous" .
-                            'fera un souvenir ! A bientôt !',
+                            'fera **un souvenir** ! À bientôt !',
                     ],
                 ],
                 'failure' => [
