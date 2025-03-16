@@ -1008,7 +1008,7 @@ class AppFixtures extends Fixture
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                             "afa_head.webp",
                         'text' => "Tiens, tu as ramené ce poisson en souvenir ? Il est plutôt mignon hihi, cela nous" .
-                            'fera **un souvenir** ! À bientôt !',
+                            ' fera **un souvenir** ! À bientôt !',
                     ],
                 ],
                 'failure' => [
