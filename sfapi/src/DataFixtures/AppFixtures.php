@@ -18,13 +18,13 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $course = new Course();
-        $course->setTitle('La malédiction du masque Gélédé :rage3:')
+        $course->setTitle('La malédiction du masque Gélédé :japanese_ogre:')
             ->setDescription(
                 "Le musée a besoin de nous pour lever la malédiction du masque Gélédé. Des monstres attirés" .
                 " par le masque viennent voler les œuvres du musée. Partons à la recherche des objets " .
                 "permettant de lever la malédiction avant qu'il ne soit trop tard. Réunissons un instrument, un poil" .
                 " d'animal et une statue. Une fois les éléments réunis, le rituel pour faire cesser la malédiction" .
-                " à tout jamais pourra être accompli !"
+                " **à tout jamais** pourra être accompli !"
             )
             ->setDifficulty(DifficultyEnum::EASY)
             ->setThumbnail('https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/gelede_mask.webp')
@@ -35,11 +35,11 @@ class AppFixtures extends Fixture
         $course2->setTitle('La carte au trésor :moneybag:')
             ->setDescription(
                 "Il y a peu, un historien est venu déposer au musée un objet entouré de mystères : une " .
-                "carte au trésor. Malgré tous ses efforts, il n`a jamais pu en percer les secrets. Pourtant, je" .
+                "**carte au trésor**. Malgré tous ses efforts, il n`a jamais pu en percer les secrets. Pourtant, je" .
                 " suis convaincue que cette carte dissimule des richesses inestimables, encore jamais découvertes. " .
                 "Mais seule, je suis incapable de révéler ses secrets. Visiteur, accepterez-vous de joindre vos " .
-                "forces aux miennes pour élucider les mystères de cette carte et partir à la découverte de " .
-                "ses trésors cachés ?"
+                "forces aux miennes pour **élucider les mystères** de cette carte et partir à la découverte de " .
+                "**ses trésors cachés** ?"
             )
             ->setDifficulty(DifficultyEnum::MEDIUM)
             ->setThumbnail("https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/treasure_" .
@@ -52,10 +52,10 @@ class AppFixtures extends Fixture
         $course3->setTitle('Entre terre et mer :ocean:')
             ->setDescription(
                 "Après toutes ces années à rechercher des trésors, je pense avoir besoin d'une pause... " .
-                "pour voyager, bien sûr ! Mais cette fois-ci, je souhaite partir pour le voyage le plus long que je" .
-                " n'ai jamais fait de toute ma vie : rencontrer des peuples, explorer les océans, affronter les " .
+                "pour **voyager**, bien sûr ! Mais cette fois-ci, je souhaite partir pour le voyage le plus long que" .
+                " je n'ai jamais fait de toute ma vie : rencontrer des peuples, explorer les océans, affronter les " .
                 "tempêtes... je veux découvrir tout ce que ce monde peut offrir ! Mais seule, j'ai peur de m'ennuyer" .
-                " ... Alors, Visiteur, es-tu tenté par l'expérience ? "
+                " ... Alors, Visiteur, **es-tu tenté par l'expérience** ? "
             )
             ->setDifficulty(DifficultyEnum::MEDIUM)
             ->setThumbnail("https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/terre_et_mer" .
@@ -147,7 +147,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Catastrophe ! La malédiction du masque Gélédé est de retour !',
+                        'text' => 'Catastrophe ! **La malédiction du masque Gélédé est de retour !**',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -177,7 +177,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'En revanche, j\'ai une plume appartenant à ce dernier.',
+                        'text' => 'En revanche, j\'ai **une plume** appartenant à ce dernier.',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -218,7 +218,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Cette plume appartient à une chouette hulotte.',
+                        'text' => 'Cette plume appartient à **une chouette hulotte** :bird:.',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -229,12 +229,12 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Maintenant, allons chercher l'instrument dont nous avons besoin ! ",
+                        'text' => "Maintenant, allons chercher **l'instrument** dont nous avons besoin ! ",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Rendez-vous dans la salle des arts musicaux située à l'étage 2, salle 24 !",
+                        'text' => "Rendez-vous dans la **salle des arts musicaux** située à l'étage 2, salle 24 !",
                     ],
                 ],
                 'failure' => [
@@ -259,7 +259,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Pourtant, l'un d'entre eux est un leurre, et n'est qu'une illusion lancée par" .
+                        'text' => "Pourtant, l'un d'entre eux est un leurre, et n'est qu'une **illusion** lancée par" .
                             " le masque Gélédé !",
                     ],
                     [
@@ -283,7 +283,7 @@ class AppFixtures extends Fixture
                     'hints' => [
                         ['image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zar" .
                             "afa_head.webp",
-                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant...'],
+                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à **cordes** avant...'],
                     ],
                     'solution' => 1,
                     'question' => 'Quel instrument n\'est pas présent dans la salle ?',
@@ -308,8 +308,8 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Direction la salle des arts décoratifs extra-européens, qui se situe juste en fa" .
-                            "ce de notre salle actuelle, à l'étage 2.",
+                        'text' => "Direction la **salle des arts décoratifs extra-européens**, qui se situe juste en" .
+                            "face de notre salle actuelle, à l'étage 2.",
                     ],
                 ],
                 'failure' => [
@@ -334,7 +334,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Nous devons trouver la statue qui nous permettra de lever la malédiction.',
+                        'text' => 'Nous devons trouver la **statue** qui nous permettra de lever la malédiction.',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -344,7 +344,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Pourras-tu retrouver la statue à partir de sa forme ?',
+                        'text' => 'Pourras-tu retrouver la statue à partir de sa forme ? :moyai:',
                     ],
                 ],
                 'given' => 'J\'ai trouvé ! C\'est la seule possible !',
@@ -386,7 +386,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Grâce à toi, la malédiction du masque peut être levée pour de bon ! ",
+                        'text' => "Grâce à toi, la malédiction du masque peut être **levée pour de bon** ! ",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -397,7 +397,7 @@ class AppFixtures extends Fixture
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
                         'text' => "N'hésite pas à venir au troisième étage pour admirer désormais l'inoffensif " .
-                            "masque Gélédé ! ;)",
+                            "masque Gélédé ! :satisfied:",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -441,7 +441,7 @@ class AppFixtures extends Fixture
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
                         'text' => "La carte indique également ceci : \"Le chemin vers le trésor se cache derrière " .
-                            "la fausse description.\"",
+                            "**la fausse description**.\"",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -451,27 +451,27 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "\"A : Je suis peint en rouge éclatant, avec des yeux ronds blancs cerclés de noir," .
-                            " un visage expressif, et je porte un bandeau décoré de motifs bleus et dorés.\"",
+                        'text' => "\"A : Je suis peint en **rouge éclatant**, avec des yeux ronds blancs cerclés de" .
+                            " noir, un visage expressif, et je porte un bandeau décoré de motifs bleus et dorés.\"",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "\"B : Je suis peint en blanc, avec des traits noirs et jaunes subtils sur les " .
-                            "joues et le front, et je porte sur ma tête pas moins de 12 bosses variant " .
+                        'text' => "\"B : Je suis peint en **blanc**, avec des traits noirs et jaunes subtils sur les " .
+                            "joues et le front, et je porte sur ma tête pas moins de **12 bosses** variant " .
                             "entre 2 apparences.\"",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "\"C : Je suis peint en jaune, mes yeux ont une couleur rappelant celle du ciel," .
-                            " tandis que mon couvre-chef rappelle un métier de la mer.\"",
+                        'text' => "\"C : Je suis peint en **jaune**, mes yeux ont une couleur rappelant celle du" .
+                            " ciel, tandis que mon couvre-chef rappelle **un métier de la mer**.\"",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "\"D : Je suis peint en bleu et blanc avec des rayures horizontales sur le visage, " .
-                            "et j'ai, sur la tête, des pointes orientées vers la même direction.\"",
+                        'text' => "\"D : Je suis peint en **bleu et blanc** avec des rayures horizontales sur le " .
+                            "visage, et j'ai, sur la tête, des pointes orientées vers la même direction.\"",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -496,7 +496,7 @@ class AppFixtures extends Fixture
                             'text' => 'Je n\'arrive pas à retrouver la description D parmi les masques présentés...'],
                     ],
                     'solution' => 2,
-                    'question' => 'Quel masque ne correspond à aucune description ?',
+                    'question' => 'Quel masque ne correspond à **aucune** description ?',
                 ],
                 'given' => 'J\'ai trouvé ! C\'est le masque avec les pointes sur la tête !',
                 'success' => [
@@ -518,7 +518,8 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Nous devons apparemment nous rendre dans la salle 9 à l'étage 1. Allons-y !",
+                        'text' => "Nous devons apparemment nous rendre dans la **galerie de zoologie** à l'étage 1. " .
+                            "Allons-y !",
                     ],
                 ],
                 'failure' => [
@@ -538,7 +539,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Nous voilà au prochain lieu indiqué par la carte : la salle de zoologie !',
+                        'text' => 'Nous voilà au prochain lieu indiqué par la carte : la **galerie de zoologie** !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -554,7 +555,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Il semblerait qu'une image d'une patte soit également inscrite.",
+                        'text' => "Il semblerait qu'une image d'une **patte** soit également inscrite.",
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -580,7 +581,8 @@ class AppFixtures extends Fixture
                     'hints' => [
                         ['image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zar" .
                             "afa_head.webp",
-                            'text' => 'La patte indiquée semble appartenir à un animal qui n\'est pas très grand...'],
+                            'text' => 'La patte indiquée semble appartenir à un animal qui ' .
+                            '**n\'est pas très grand**...'],
                     ],
                     'solution' => 2,
                     'question' => 'À quel animal appartient cette patte ?',
@@ -589,7 +591,8 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'Effectivement, tu as raison, cette patte appartient bien au caméléon verruqueux !',
+                        'text' => 'Effectivement, tu as raison, cette patte appartient bien au ' .
+                            '**caméléon verruqueux** !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -611,7 +614,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "Notre dernière destination semble être le sous-sol du musée, allons-y !",
+                        'text' => "Notre dernière destination semble être le **sous-sol du musée**, allons-y !",
                     ],
                 ],
                 'failure' => [
@@ -657,10 +660,10 @@ class AppFixtures extends Fixture
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
                         'text' => "Cette énigme semble plus difficile... Visiteur, je compte sur toi. C'est notre " .
-                            "dernier obstacle avant le trésor, tu es capable de le surmonter, j'en suis sûre !",
+                            "**dernier obstacle avant le trésor**, tu es capable de le surmonter, j'en suis sûre !",
                     ],
                 ],
-                'given' => 'J\'ai la solution ! Ce magnifique spath d\'Aunis est la réponse à l\'énigme !',
+                'given' => 'J\'ai la solution ! Ce magnifique **spath d\'Aunis** est la réponse à l\'énigme !',
                 'activity' => [
                     'answers' => [
                         ['type' => 'IMAGE', 'src' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/"
@@ -692,7 +695,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => 'C\'est un spath qui provient de la région d\'Aunis, elle est si belle !',
+                        'text' => 'C\'est un **Spath** qui provient de la région **d\'Aunis**, elle est si belle !',
                     ],
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
@@ -724,7 +727,7 @@ class AppFixtures extends Fixture
                     [
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
-                        'text' => "À très vite !",
+                        'text' => "À très vite ! :relaxed:",
                     ],
                 ],
                 'failure' => [
@@ -738,62 +741,6 @@ class AppFixtures extends Fixture
         ];
 
         $stepsData3 = [
-            [
-                'title' => 'Le masque de protection',
-                'room' => 1,
-                'reward' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/gelede_mask.webp',
-                'type' => PuzzleTypeEnum::PUZZLE,
-                'story' => [
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Voyons...à quoi ressemble le masque que nous devons trouver...',
-                    ],
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => "Oh non ! J'ai mis le papier en boule dans ma poche, et le voilà en 1000 morceaux !",
-                    ],
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Nous devons le reconstruire, mais mes pattes sont inaptes à faire cela...',
-                    ],
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Peux-tu m\'aider Visiteur ?',
-                    ],
-                ],
-                'given' => 'Normalement ce texte ne sera jamais à l\'écran HIHI',
-                'activity' => [
-                    'imageUri' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/IMG_2025031' .
-                        '2_114542.webp',
-                    'piecesPerRow' => 4,
-                    'solution' => 0,
-                    'question' => 'Aidez Zarafa à reconstruire l\'image du masque de protection.',
-                ],
-                'success' => [
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Voilà Visiteur, c\'est parfait ! Le masque ressemblait à ça !',
-                    ],
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Il me semble l\'apercevoir, allons le chercher et passons à la suite de notre ' .
-                            'expédition !',
-                    ],
-                ],
-                'failure' => [
-                    [
-                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
-                            "head.webp",
-                        'text' => 'Non, je ne devrais normalement pas apparaître, le code est mal fait !',
-                    ],
-                ],
-            ],
             [
                 'title' => 'Le peuple masqué',
                 'room' => 3,
@@ -890,6 +837,62 @@ class AppFixtures extends Fixture
                         'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
                             "head.webp",
                         'text' => 'Non, ce peuple ne me semble pas très amical...',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Le masque de protection',
+                'room' => 1,
+                'reward' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/gelede_mask.webp',
+                'type' => PuzzleTypeEnum::PUZZLE,
+                'story' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Voyons...à quoi ressemble le masque que nous devons trouver...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => "Oh non ! J'ai mis le papier en boule dans ma poche, et le voilà en 1000 morceaux !",
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Nous devons le reconstruire, mais mes pattes sont inaptes à faire cela...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Peux-tu m\'aider Visiteur ?',
+                    ],
+                ],
+                'given' => 'Normalement ce texte ne sera jamais à l\'écran HIHI',
+                'activity' => [
+                    'imageUri' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/IMG_2025031' .
+                        '2_114542.webp',
+                    'piecesPerRow' => 4,
+                    'solution' => 0,
+                    'question' => 'Aidez Zarafa à reconstruire l\'image du masque de protection.',
+                ],
+                'success' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Voilà Visiteur, c\'est parfait ! Le masque ressemblait à ça !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Il me semble l\'apercevoir, allons le chercher et passons à la suite de notre ' .
+                            'expédition !',
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Non, je ne devrais normalement pas apparaître, le code est mal fait !',
                     ],
                 ],
             ],
