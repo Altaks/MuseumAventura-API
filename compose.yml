@@ -55,7 +55,6 @@ services:
       MYSQL_PASSWORD: pdbsfapi
     networks:
       - network
-  
   kong:
     image: kong:latest
     container_name: ${COMPOSE_PROJECT_NAME}-kong
@@ -66,15 +65,31 @@ services:
       KONG_ADMIN_ACCESS_LOG: /dev/stdout
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
-      KONG_ADMIN_LISTEN: 0.0.0.0:8001
-      KONG_PROXY_LISTEN: 0.0.0.0:8002
+      KONG_ADMIN_LISTEN: kong:8001
+      KONG_PROXY_LISTEN: kong:8002
     volumes:
       - ./kong/kong.yml:/etc/kong/kong.yml
     depends_on:
       - sfapi
+      - proxy
     ports:
       - "8002:8002"
       - "8001:8001"
+    networks:
+      - network
+  proxy:
+    build:
+      context: .
+      dockerfile: ./build/proxy/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-proxy
+    container_name: ${COMPOSE_PROJECT_NAME}-proxy
+    environment:
+      MINIO_ACCESS_KEY: "eCWdCxO8zDDBcpD9CfFT"
+      MINIO_SECRET_KEY: "mqcXWG7wgNk6tEFHrDzqft0hYgDveorMhCDLflqR"
+      MINIO_ENDPOINT: "https://minio.labs.iut-larochelle.fr"
+      AWS_REGION: "us-east-1"
+    ports:
+      - "5000:5000"
     networks:
       - network
 
