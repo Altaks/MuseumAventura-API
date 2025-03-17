@@ -1118,7 +1118,7 @@ class AppFixtures extends Fixture
                         "type" => "TEXT",
                         "content" => "baudroies roses communes"
                     ],
-                    'question' => 'De quelle espèce appartient le poisson que vous avez récupéré ?',
+                    'question' => 'À quelle espèce appartient le poisson que vous avez récupéré ?',
                 ],
                 'success' => [
                     [
