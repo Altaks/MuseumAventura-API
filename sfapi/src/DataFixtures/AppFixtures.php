@@ -18,7 +18,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $course = new Course();
-        $course->setTitle('La malédiction du masque Gélédé')
+        $course->setTitle('La malédiction du masque Gélédé :rage3:')
             ->setDescription(
                 "Le musée a besoin de nous pour lever la malédiction du masque Gélédé. Des monstres attirés" .
                 " par le masque viennent voler les œuvres du musée. Partons à la recherche des objets " .
@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
             ->setDuration(60);
 
         $course2 = new Course();
-        $course2->setTitle('La carte au trésor')
+        $course2->setTitle('La carte au trésor :moneybag:')
             ->setDescription(
                 "Il y a peu, un historien est venu déposer au musée un objet entouré de mystères : une " .
                 "carte au trésor. Malgré tous ses efforts, il n`a jamais pu en percer les secrets. Pourtant, je" .
