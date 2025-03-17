@@ -1111,7 +1111,7 @@ class AppFixtures extends Fixture
                         ['image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zar" .
                             "afa_head.webp",
                             'text' => 'Mon intuition me dit que tu ne t\'en souviens plus ! Je crois qu\'il possède ' .
-                                'un nom assez, un nom en **3 mots**.'
+                                'un nom assez long, un nom en **3 mots**.'
                         ],
                     ],
                     'solution' => [
