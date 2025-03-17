@@ -126,8 +126,7 @@ class AppFixtures extends Fixture
                 'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/room/room/1etage/r10.webp",
             ],
         ];
-
-
+        
         foreach ($roomsData as $roomData) {
             $room = new Room();
             $room->setFloor($roomData['floor'])
@@ -137,6 +136,284 @@ class AppFixtures extends Fixture
             $manager->persist($room);
             $rooms[$roomData['id']] = $room;
         }
+
+        $stepsData = [
+            [
+                'title' => 'Retrouve l\'animal avec la plume',
+                'room' => 2,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
+                'story' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Catastrophe ! La malédiction du masque Gélédé est de retour !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Visiteur, je remercie ta présence ! Nous allons y mettre fin ensemble !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Pour cela, nous devons réunir différents éléments présents dans le musée.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Pour commencer, nous voici dans la galerie de zoologie !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Il y a vraiment beaucoup d\'animaux ici !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Malheureusement, je ne sais pas à quoi ressemble l\'animal que nous recherchons...',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'En revanche, j\'ai une plume appartenant à ce dernier.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Sauras-tu retrouver à quel animal il appartient ?',
+                    ],
+                ],
+                'given' => 'J\'ai trouvé l\'animal que nous cherchons !',
+                'activity' => [
+                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/plume_hi" .
+                        "bou_hulotte.webp",
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/heron_cendre.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/piaf1-1.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/chouette_hulotte.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/coracine_casquee.webp"],
+                    ],
+                    'hints' => [
+                        [
+                            'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
+                                "/Zarafa_head.webp",
+                            'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il le peut !'
+                        ],
+                    ],
+                    'solution' => 2,
+                    'question' => "À quel animal appartient cette plume ?",
+                ],
+                'success' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Bravo, tu as raison !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Cette plume appartient à une chouette hulotte.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Tâchons de ne pas oublier son nom, nous en aurons besoin pour lever la malédictio" .
+                            "n !",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Maintenant, allons chercher l'instrument dont nous avons besoin ! ",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Rendez-vous dans la salle des arts musicaux située à l'étage 2, salle 24 !",
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Non, ce n\'est pas cet animal on dirait... Réessaie !',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Instrument en trop',
+                'room' => 1,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::AMONGUS,
+                'story' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Tous ces instruments sont vraiment impressionants !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Pourtant, l'un d'entre eux est un leurre, et n'est qu'une illusion lancée par" .
+                            " le masque Gélédé !",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Mais lequel peut-il être bien être ?',
+                    ],
+                ],
+                'given' => 'Regarde, c\'est celui-là ! Cet instrument n\'a rien à faire ici.',
+                'activity' => [
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/flute.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/instrument_inconnue.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/truc.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/20241218_165950.webp"],
+                    ],
+                    'hints' => [
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant...'],
+                    ],
+                    'solution' => 1,
+                    'question' => 'Quel instrument n\'est pas présent dans la salle ?',
+                ],
+                'success' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Oui, c\'est celui-là ! Cet instrument n\'a rien à faire ici !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'C\'est un piège du masque Gélédé !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Je m'occupe de le faire disparaître, tu peux te rendre à la salle suivante en at" .
+                            "tendant.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Direction la salle des arts décoratifs extra-européens, qui se situe juste en fa" .
+                            "ce de notre salle actuelle, à l'étage 2.",
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Non, cet instrument est bien présent dans la salle, essayons un autre !',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Retrouve la statue',
+                'room' => 3,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
+                'story' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Le dernier élément dont nous avons besoin se situe dans cette salle.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Nous devons trouver la statue qui nous permettra de lever la malédiction.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Malheureusement, le masque a essayé de la dissimuler parmi les autres...',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Pourras-tu retrouver la statue à partir de sa forme ?',
+                    ],
+                ],
+                'given' => 'J\'ai trouvé ! C\'est la seule possible !',
+                'activity' => [
+                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/statue_c" .
+                        "ache.webp",
+                    'answers' => [
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/20241218_170626.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/animaux_jouet_2.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/massue_patu_wahaika.webp"],
+                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
+                            "lic/Musee/20241218_170318.webp"],
+                    ],
+                    'hints' => [
+                        [
+                            'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
+                                "/Zarafa_head.webp",
+                            'text' => "En regardant la forme de plus près, c'est une statue grande et " .
+                                "large.",
+                        ],
+                    ],
+                    'solution' => 0,
+                    'question' => "À quelle statue appartient cette forme ?",
+                ],
+                'success' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Félicitations, tu as de très bons yeux !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'C\'est la statue que nous cherchons.',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Grâce à toi, la malédiction du masque peut être levée pour de bon ! ",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Merci à toi Visiteur, le musée peut désormais continuer à vivre sereinement !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "N'hésite pas à venir au troisième étage pour admirer désormais l'inoffensif " .
+                            "masque Gélédé ! ;)",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "À bientôt !",
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'On ne dirait pas que cette statue correspond à la forme présentée...',
+                    ],
+                ],
+            ],
+        ];
 
         $stepsData2 = [
             [
@@ -449,284 +726,6 @@ class AppFixtures extends Fixture
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                             "afa_head.webp",
                         'text' => 'Non, ce n\'est pas ça, essayons autre chose...',
-                    ],
-                ],
-            ],
-        ];
-
-        $stepsData = [
-            [
-                'title' => 'Retrouve l\'animal avec la plume',
-                'room' => 2,
-                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
-                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
-                'story' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Catastrophe ! La malédiction du masque Gélédé est de retour !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Visiteur, je remercie ta présence ! Nous allons y mettre fin ensemble !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Pour cela, nous devons réunir différents éléments présents dans le musée.',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Pour commencer, nous voici dans la galerie de zoologie !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Il y a vraiment beaucoup d\'animaux ici !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Malheureusement, je ne sais pas à quoi ressemble l\'animal que nous recherchons...',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'En revanche, j\'ai une plume appartenant à ce dernier.',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Sauras-tu retrouver à quel animal il appartient ?',
-                    ],
-                ],
-                'given' => 'J\'ai trouvé l\'animal que nous cherchons !',
-                'activity' => [
-                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/plume_hi" .
-                        "bou_hulotte.webp",
-                    'answers' => [
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/heron_cendre.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/piaf1-1.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/chouette_hulotte.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/coracine_casquee.webp"],
-                    ],
-                    'hints' => [
-                        [
-                            'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
-                                "/Zarafa_head.webp",
-                            'text' => 'Je crois que notre animal adore prendre de la hauteur dès qu\'il le peut !'
-                        ],
-                    ],
-                    'solution' => 2,
-                    'question' => "À quel animal appartient cette plume ?",
-                ],
-                'success' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Bravo, tu as raison !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Cette plume appartient à une chouette hulotte.',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Tâchons de ne pas oublier son nom, nous en aurons besoin pour lever la malédictio" .
-                            "n !",
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Maintenant, allons chercher l'instrument dont nous avons besoin ! ",
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Rendez-vous dans la salle des arts musicaux située à l'étage 2, salle 24 !",
-                    ],
-                ],
-                'failure' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Non, ce n\'est pas cet animal on dirait... Réessaie !',
-                    ],
-                ],
-            ],
-            [
-                'title' => 'Instrument en trop',
-                'room' => 1,
-                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
-                'type' => PuzzleTypeEnum::AMONGUS,
-                'story' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Tous ces instruments sont vraiment impressionants !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Pourtant, l'un d'entre eux est un leurre, et n'est qu'une illusion lancée par" .
-                            " le masque Gélédé !",
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Mais lequel peut-il être bien être ?',
-                    ],
-                ],
-                'given' => 'Regarde, c\'est celui-là ! Cet instrument n\'a rien à faire ici.',
-                'activity' => [
-                    'answers' => [
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/flute.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/instrument_inconnue.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/truc.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/20241218_165950.webp"],
-                    ],
-                    'hints' => [
-                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                            'text' => 'Je ne crois pas qu\'il y avait autant d\'instruments à cordes avant...'],
-                    ],
-                    'solution' => 1,
-                    'question' => 'Quel instrument n\'est pas présent dans la salle ?',
-                ],
-                'success' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Oui, c\'est celui-là ! Cet instrument n\'a rien à faire ici !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'C\'est un piège du masque Gélédé !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Je m'occupe de le faire disparaître, tu peux te rendre à la salle suivante en at" .
-                            "tendant.",
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Direction la salle des arts décoratifs extra-européens, qui se situe juste en fa" .
-                            "ce de notre salle actuelle, à l'étage 2.",
-                    ],
-                ],
-                'failure' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Non, cet instrument est bien présent dans la salle, essayons un autre !',
-                    ],
-                ],
-            ],
-            [
-                'title' => 'Retrouve la statue',
-                'room' => 3,
-                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
-                'type' => PuzzleTypeEnum::GUESSIMAGE_EASY,
-                'story' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Le dernier élément dont nous avons besoin se situe dans cette salle.',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Nous devons trouver la statue qui nous permettra de lever la malédiction.',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Malheureusement, le masque a essayé de la dissimuler parmi les autres...',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Pourras-tu retrouver la statue à partir de sa forme ?',
-                    ],
-                ],
-                'given' => 'J\'ai trouvé ! C\'est la seule possible !',
-                'activity' => [
-                    'ref_image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/statue_c" .
-                        "ache.webp",
-                    'answers' => [
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/20241218_170626.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/animaux_jouet_2.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/massue_patu_wahaika.webp"],
-                        ['type' => 'IMAGE', 'src' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/pub" .
-                            "lic/Musee/20241218_170318.webp"],
-                    ],
-                    'hints' => [
-                        [
-                            'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon" .
-                                "/Zarafa_head.webp",
-                            'text' => "En regardant la forme de plus près, c'est une statue grande et " .
-                                "large.",
-                        ],
-                    ],
-                    'solution' => 0,
-                    'question' => "À quelle statue appartient cette forme ?",
-                ],
-                'success' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Félicitations, tu as de très bons yeux !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'C\'est la statue que nous cherchons.',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Grâce à toi, la malédiction du masque peut être levée pour de bon ! ",
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'Merci à toi Visiteur, le musée peut désormais continuer à vivre sereinement !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "N'hésite pas à venir au troisième étage pour admirer désormais l'inoffensif " .
-                            "masque Gélédé ! ;)",
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "À bientôt !",
-                    ],
-                ],
-                'failure' => [
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => 'On ne dirait pas que cette statue correspond à la forme présentée...',
                     ],
                 ],
             ],
@@ -1054,24 +1053,93 @@ class AppFixtures extends Fixture
                         'text' => "Oh ?! Mais c'est un bateau là-bas ! Faisons lui signe, il pourrait nous ramener au" .
                             ' musée !',
                     ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "C'est donc la fin de notre aventure, j'ai été très heureuse de partager cela avec " .
-                            'toi Visiteur, merci pour tout !',
-                    ],
-                    [
-                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
-                            "afa_head.webp",
-                        'text' => "Tiens, tu as ramené ce poisson en souvenir ? Il est plutôt mignon hihi, cela nous" .
-                            ' fera **un souvenir** ! À bientôt !',
-                    ],
                 ],
                 'failure' => [
                     [
                         'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
                             "afa_head.webp",
                         'text' => 'Non, ce n\'est pas un mulet doré...',
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Le poisson rêvé de Zarafa',
+                'room' => 7,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::FINDINFO,
+                'story' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Heureusement que ce bateau a accepté de nous prendre avec lui, cela nous évitera' .
+                                ' de traverser tout l\'océan à la nage !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Tiens, tu as ramené ce poisson en souvenir ? Il est plutôt mignon hihi",
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Je me connais plutôt bien en poissons, mais je dois bien avouer que celui-là me ' .
+                            'semble inconnu...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Sa **couleur rose**, sa **petite taille** et sa **forme circulaire**...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Pourrais-tu m\'en dire plus à son sujet ?',
+                    ],
+                ],
+                'given' => 'OH ?! Ce bateau a une liste des différents poissons dans cet océan !',
+                'activity' => [
+                    'hints' => [
+                        ['image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                            'text' => 'Mon intuition me dit que tu ne t\'en souviens plus ! Je crois qu\'il possède ' .
+                                'un nom assez, un nom en **3 mots**.'
+                        ],
+                    ],
+                    'solution' => [
+                        "type" => "TEXT",
+                        "content" => "baudroies roses communes"
+                    ],
+                    'question' => 'De quelle espèce appartient le poisson que vous avez récupéré ?',
+                ],
+                'success' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Je vois, ce poisson fait donc parti de l\'espèce des **baudroies roses communes** !',
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Nous aurons appris beaucoup de nouvelles choses durant ce voyage !" ,
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "J'espère sincèrement que nous pourrons revivre d'autres expériences similaires" .
+                            " ensemble.",
+                    ],
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => "Mais nous arrivons à la fin de notre aventure. J'ai été très heureuse de " .
+                            'partager cela avec toi Visiteur, merci pour tout !',
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://dbgjqsyfbgqboyomqfjr.supabase.co/storage/v1/object/public/Musee/icon/Zar" .
+                            "afa_head.webp",
+                        'text' => 'Non, ce n\'est pas cela...',
                     ],
                 ],
             ],
