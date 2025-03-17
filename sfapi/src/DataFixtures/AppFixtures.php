@@ -496,7 +496,7 @@ class AppFixtures extends Fixture
                             'text' => 'Je n\'arrive pas à retrouver la description D parmi les masques présentés...'],
                     ],
                     'solution' => 2,
-                    'question' => 'Quel masque ne correspond à **aucune** description ?',
+                    'question' => 'Quel masque ne correspond à aucune description ?',
                 ],
                 'given' => 'J\'ai trouvé ! C\'est le masque avec les pointes sur la tête !',
                 'success' => [
