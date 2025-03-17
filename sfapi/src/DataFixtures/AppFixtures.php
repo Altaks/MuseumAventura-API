@@ -734,6 +734,62 @@ class AppFixtures extends Fixture
 
         $stepsData3 = [
             [
+                'title' => 'Le masque de protection',
+                'room' => 1,
+                'reward' => 'https://upload.wikimedia.org/wikipedia/commons/2/28/Latimeria_chalumnae.jpg',
+                'type' => PuzzleTypeEnum::PUZZLE,
+                'story' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Voyons...à quoi ressemble le masque que nous devons trouver...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => "Oh non ! J'ai mis le papier en boule dans ma poche, et le voilà en 1000 morceaux !",
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Nous devons le reconstruire, mais mes pattes sont inaptes à faire cela...',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Peux-tu m\'aider Visiteur ?',
+                    ],
+                ],
+                'given' => 'Normalement ce texte ne sera jamais à l\'écran HIHI',
+                'activity' => [
+                    'imageUri' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/IMG_2025031' .
+                        '2_114542.webp',
+                    'piecesPerRow' => 4,
+                    'solution' => 0,
+                    'question' => 'Aidez Zarafa à reconstruire l\'image du masque de protection.',
+                ],
+                'success' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Voilà Visiteur, c\'est parfait ! Le masque ressemblait à ça !',
+                    ],
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Il me semble l\'apercevoir, allons le chercher et passons à la suite de notre ' .
+                            'expédition !',
+                    ],
+                ],
+                'failure' => [
+                    [
+                        'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/icon/Zarafa_" .
+                            "head.webp",
+                        'text' => 'Non, je ne devrais normalement pas apparaître, le code est mal fait !',
+                    ],
+                ],
+            ],
+            [
                 'title' => 'Le peuple masqué',
                 'room' => 3,
                 'reward' => 'https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/20250312_105223.webp',
