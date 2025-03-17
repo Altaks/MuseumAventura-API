@@ -126,7 +126,7 @@ class AppFixtures extends Fixture
                 'image' => "https://sae5-x21-api-dev.labs.iut-larochelle.fr/resources/images/room/room/1etage/r10.webp",
             ],
         ];
-        
+
         foreach ($roomsData as $roomData) {
             $room = new Room();
             $room->setFloor($roomData['floor'])
@@ -1189,7 +1189,6 @@ class AppFixtures extends Fixture
 
             $manager->persist($step3);
         }
-
 
         $manager->flush();
     }
