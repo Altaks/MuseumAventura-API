@@ -10,7 +10,9 @@ use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 
 #[ORM\Entity(repositoryClass: StepRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    operations: []
+)]
 class Step
 {
     #[ORM\Id]
