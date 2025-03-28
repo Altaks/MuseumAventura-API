@@ -1,0 +1,14 @@
+_format_version: "3.0"
+services:
+  - name: sfapi
+    url: http://nginx:80/api
+    routes:
+      - name: sfapi-route
+        paths:
+          - /api
+  - name: assets
+    url: http://proxy:5000
+    routes:
+      - name: assets-route
+        paths:
+          - /assets
